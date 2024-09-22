@@ -1,0 +1,509 @@
+// the queries were ran using Azure Data Explorer online console
+// https://dataexplorer.azure.com/clusters/help/databases/ContosoSales
+
+// Learning path link: https://learn.microsoft.com/en-us/training/paths/kusto-query-language/
+
+// Sample queries
+StormEvents
+| where EventType == "Flood"
+| sort by DamageProperty desc
+| take 10
+;
+
+// Let statements
+let n = 10;  // number
+let place = "VIRGINIA";  // string
+let cutoff = ago(12345d); // datetime 
+StormEvents 
+| where StartTime > cutoff and State == place 
+| take n
+;
+
+// Built-in functions
+print str = strcat("hello", " ", "world")
+;
+
+// User-defined functions
+.create function
+with (docstring = 'Demo function with parameter', folder='Demo')
+ MyFunction2(myLimit: long)  {StormEvents | take myLimit}
+;
+
+let f=(a: string, b: string) {
+    strcat(a, " (la la la) ", b)
+};
+print f("hello", "world")
+;
+
+// Query with tabular expression statements
+StormEvents
+| where State == "FLORIDA"
+|sort by InjuriesDirect desc
+;
+
+// Introduce a variable with a let statement
+let state = "TEXAS";
+let injuryThreshold = 10;
+StormEvents
+| where State == state and InjuriesDirect + InjuriesIndirect > injuryThreshold
+;
+
+// Return a specific number of rows by using the take operator
+StormEvents
+| take 5
+;
+
+// Select columns to return by using the project operator
+// Use the project operator
+StormEvents
+| project EventType, State, DamageProperty, DamageCrops, InjuriesDirect, InjuriesIndirect
+| take 10
+;
+
+// Rename and define new columns by using project
+StormEvents
+| project US_State=State, EventType, Injuries=InjuriesDirect+InjuriesIndirect, Damage=DamageCrops+DamageProperty
+| take 10
+;
+
+// Use the project-away operator
+StormEvents
+| project-away EpisodeId, EventId
+| take 10
+;
+
+StormEvents
+| project-away *Id
+| take 10
+;
+
+// Filter data by using the where operator
+// Use the where operator
+StormEvents
+| where DamageProperty > 0
+| project State, EventType, DamageProperty
+| take 10
+;
+
+
+StormEvents
+| where DamageProperty > 0
+| where StartTime > ago(20d)
+| project State, EventType, DamageProperty
+;
+
+// Use the where operator
+StormEvents
+| where DamageCrops > 0
+| where State == "FLORIDA"
+| project State, EventType, DamageCrops
+;
+
+// Filter by using a string value
+StormEvents
+| where DamageProperty > 0
+| where State == "FLORIDA"
+| where EventType has "wind"
+| project StartTime, EventType, DamageProperty
+;
+
+// Filter by using the has operator
+StormEvents | where EventType contains "free"
+;
+
+// Filter on datetime values
+StormEvents
+| where StartTime between (datetime(2007-01-01)..datetime(2007-06-01))
+| where DamageProperty > 0
+| where State == "FLORIDA"
+| project StartTime, EventType, DamageProperty
+| take 50
+;
+
+// Use the sort operator
+StormEvents
+| where DamageProperty > 0
+| project State, EventType, DamageProperty
+| sort by DamageProperty desc
+;
+
+// Sort on more than one expression
+StormEvents
+| where DamageProperty > 0
+| project State, EventType, DamageProperty
+| sort by State asc, DamageProperty
+
+;
+
+// Use the top operator
+StormEvents
+| where State == "FLORIDA"
+| top 10 by DamageProperty
+| project State, EventType, DamageProperty
+;
+
+// Challenge
+// In the month of April 2007, what were the top five damage-causing storm events in the state of Virginia? 
+// In this case, "damage" refers to both property and crop damage.
+
+StormEvents
+| where StartTime between (datetime(4-1-2007)..datetime(4-30-2007))
+| where State == "VIRGINIA"
+| project Damage=DamageProperty+DamageCrops, EventType
+| top 5 by Damage
+;
+
+// Use the count function
+StormEvents
+| summarize EventCount = count() by State
+| sort by EventCount
+;
+
+// Use the dcount() and countif() functions
+StormEvents
+| summarize count(),
+    EventsWithDamageToCrops = countif(DamageCrops > 0),
+    Count = dcount(EventType) by State
+| sort by Count
+;
+
+// Use the distinct operator
+StormEvents
+| where State == "TEXAS"
+| distinct EventType
+| sort by EventType asc
+;
+
+// Use the render operator
+StormEvents
+| summarize count(),
+    EventsWithDamageToCrops = countif(DamageCrops > 0),
+    dcount(EventType) by State
+| sort by count_
+| render barchart
+;
+
+// Group values using the bin() function
+StormEvents
+| summarize count() by bin(StartTime, 7d)
+| render columnchart
+;
+
+// Use the sum operator
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize sum(damage) by bin(StartTime, 7d)
+| render columnchart
+;
+
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize sum(damage) by EventType
+| render piechart
+;
+
+// Characterize storm types using the avg() function
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize avg(damage) by EventType
+| sort by avg_damage
+;
+
+// A more concise way to run this query is to use the avgif() function
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| summarize round(avgif(damage, damage > 0)) by EventType
+| sort by avgif_damage
+;
+
+// Find extremes using min() and max()
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize MaxDamage=max(damage), MinDamage=min(damage), AverageDamage= round(avg(damage)) by EventType
+| sort by MaxDamage
+;
+
+// Similar: minif(), maxif(), sumif()
+
+// Use the percentiles() function
+StormEvents
+| extend damage = DamageProperty + DamageCrops
+| where damage > 0
+| summarize percentiles(damage, 5, 20, 50, 80, 95) by EventType
+| sort by EventType asc
+;
+
+// Introduce variables using the let statement
+// https://learn.microsoft.com/en-us/training/modules/gain-insights-data-kusto-query-language/7-exercise-introduce-variables-let-statement
+// Define a scalar with a let statement
+let MinDamage = 1; // int
+let EventLocation = "ARIZONA"; // string
+StormEvents
+| where State == EventLocation
+| where DamageCrops + DamageProperty >= MinDamage
+| summarize Damage=round(avg(DamageProperty + DamageCrops)) by EventType
+| sort by Damage
+;
+
+// Convert a tabular result to a scalar value using toscalar within a let statement
+StormEvents
+| summarize count() by EventType
+| top 1 by count_
+| project EventType
+;
+
+let MostFrequentEventType = toscalar(
+    StormEvents
+    | summarize count() by EventType
+    | top 1 by count_
+    | project EventType);
+
+let MostFrequentEventType = toscalar(
+    StormEvents
+    | summarize count() by EventType
+    | top 1 by count_
+    | project EventType);
+StormEvents
+| where EventType == MostFrequentEventType
+| summarize count() by startofmonth(StartTime)
+| render columnchart
+;
+
+// Construct a let statement with tabular output
+let KillerStorms =
+    StormEvents
+    | where DeathsDirect + DeathsIndirect > 0
+    | project State, EventType, Deaths=DeathsDirect + DeathsIndirect;
+KillerStorms
+| summarize DistinctKillerEventTypes=dcount(EventType), TotalDeaths=sum(Deaths) by State
+| sort by TotalDeaths
+;
+
+// Create a user-defined function with the let statement
+// general syntax
+// let function=(argument1:datatype, argument2:datatype) {functionbody};
+let Pcent = (portion: real, total: real) { round(100 * portion / total, 2) };
+StormEvents
+| extend Damage = DamageCrops + DamageProperty
+| summarize TotalEvents = count(), TotalDamagingEvents = countif(Damage > 0) by EventType
+| project EventType, TotalDamagingEvents, TotalEvents, Percentage = Pcent(TotalDamagingEvents, TotalEvents)
+| sort by EventType asc
+;
+
+// Challenge
+// What was the total week-by-week damage caused by all flood events? 
+// Show damage in the unit of Euros. In this case, damage refers to both property and crop damage. 
+// Assume the Euro is worth 1.14 USD.
+
+let Eur = 1.14; // conversion rate
+StormEvents
+| where EventType has "flood"
+| extend Damage = (DamageProperty + DamageCrops) / Eur
+| summarize sum(Damage) by bin(StartTime, 7d)
+| render columnchart
+;
+
+// Write multi-table queries by using Kusto Query Language
+// https://learn.microsoft.com/en-us/training/modules/multi-table-queries-with-kusto-query-language/
+
+// https://learn.microsoft.com/en-us/training/modules/multi-table-queries-with-kusto-query-language/2-multi-table-queries
+// Understand your data
+// To get the number of records in a table, use the count operator:
+// TABLE_NAME
+// | count
+
+// To get the schema of a table, use the getschema operator:
+// TABLE_NAME
+// | getschema
+
+Customers
+| getschema 
+;
+
+// Understand multi-table queries
+// Kinds of join
+
+// Combine table results by using the join operator
+// Use the join operator
+Customers
+| join kind=inner SalesFact on CustomerKey
+| take 10
+;
+
+Customers
+| join kind=inner SalesFact on CustomerKey
+| summarize TotalAmount = round(sum(SalesAmount)) by RegionCountryName
+| top 3 by TotalAmount
+;
+
+// Your team then asks you to identify the countries/regions with the lowest revenues in the last recorded year, by month. 
+// To get this data, you use a similar query. But this time, you use the startofmonth() function to facilitate grouping by month. 
+// You also use the arg_min() aggregation function to find the countries/regions with the lowest revenues in each month.
+Customers
+| join kind=inner SalesFact on CustomerKey
+| summarize TotalAmount = round(sum(SalesAmount))
+    by Month = startofmonth(DateKey), RegionCountryName
+| summarize arg_min(TotalAmount, RegionCountryName) by Month
+| top 12 by Month desc
+;
+
+// Use the rightouter join kind
+
+// Your sales team wants to know the total sales by product category. 
+// When you start reviewing the available data, you realize that you need the Products table to get the list of product categories 
+// and the SalesFact table to get the sales data. You also realize that you want to count the sales for each category and list all product categories.
+
+Products
+| join kind=rightouter SalesFact on ProductKey
+| summarize TotalSales = count() by ProductCategoryName
+| order by TotalSales desc
+;
+
+// Use the rightanti join kind
+// Similarly, your sales team wants to know the number of products that don't sell in each product category. 
+// You can use a rightanti join to get all the rows from the Products table that don't match any rows in the SalesFacts table, 
+// and then group the results by product category.
+
+SalesFact
+| join kind=rightanti Products on ProductKey
+| summarize Count = count() by ProductCategoryName
+| order by Count desc
+;
+
+// Combine table results by using the lookup operator
+// https://learn.microsoft.com/en-us/training/modules/multi-table-queries-with-kusto-query-language/5-exercise-lookup
+
+// Use the lookup operator
+// Your sales team wants to know the company's total sales per country/region. 
+// You could use a join operator to get the customer and product information. 
+// However, this kind of query performs best when you use the lookup operator to get this information.
+
+SalesFact
+| lookup Customers on CustomerKey
+| take 10
+;
+
+SalesFact
+| lookup Customers on CustomerKey
+| summarize TotalSales = count() by RegionCountryName
+| order by TotalSales desc
+;
+
+// In the preceding unit, you used a rightouter join to get the total sales by product category. 
+// That query took 0.834 seconds to run. 
+// Now, write a query to get the same result by using the lookup operator and then compare the execution time.
+
+SalesFact
+| lookup Products on ProductKey
+| summarize TotalSales = count() by ProductCategoryName
+| order by TotalSales desc
+;
+
+// Combine table results by using the union operator
+// Use the union operator
+
+let AustraliaSales = SalesFact // Sales facts from Australia
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'Australia'
+    | take 10;
+let UnitedKingdomSales = SalesFact // Sales facts from United Kingdom
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United Kingdom'
+    | take 10;
+let UnitedStatesSales = SalesFact // Sales facts from United States
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United States'
+    | take 10;
+AustraliaSales
+| union UnitedKingdomSales, UnitedStatesSales
+;
+
+// Use the union operator with tables that have different columns
+let AustraliaSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'Australia'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, CityName;
+let UnitedKingdomSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United Kingdom'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, Occupation;
+let UnitedStatesSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United States'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, StateProvinceName;
+union AustraliaSales, UnitedKingdomSales, UnitedStatesSales
+;
+
+// Use the union operator with tables that have different columns and return only the columns that occur in all tables
+let AustraliaSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'Australia'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, CityName;
+let UnitedKingdomSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United Kingdom'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, Occupation;
+let UnitedStatesSales = SalesFact
+    | lookup Customers on CustomerKey
+    | where RegionCountryName == 'United States'
+    | take 10
+    | project SalesAmount, TotalCost, DateKey, RegionCountryName, StateProvinceName;
+union kind=inner AustraliaSales, UnitedKingdomSales, UnitedStatesSales
+;
+
+// Optimize queries by using the materialize function
+// Use the materialize function
+// In our retail company scenario, your sales team asks you for the top customers in the top 10 states, 
+// by revenue and how much they contribute, as a percentage, to the states' sales.
+let USCustomers = Customers | where RegionCountryName == 'United States';
+let USCustomerSales =
+    SalesFact
+    | summarize USTotalCustomerSales = sum(SalesAmount) by CustomerKey
+    | join kind=inner USCustomers on CustomerKey;
+USCustomerSales
+| summarize USTotalStateSales = round(sum(USTotalCustomerSales)) by StateProvinceName
+;
+
+let USCustomers = Customers | where RegionCountryName == 'United States';
+let USCustomerSales = materialize(
+    SalesFact
+    | summarize USTotalCustomerSales = sum(SalesAmount) by CustomerKey
+    | join kind=inner USCustomers on CustomerKey);
+USCustomerSales
+| summarize USTotalStateSales = round(sum(USTotalCustomerSales)) by StateProvinceName
+| lookup (
+    USCustomerSales
+    | summarize arg_max(USTotalCustomerSales, *) by StateProvinceName
+    )
+    on StateProvinceName
+| top 10 by USTotalStateSales
+;
+
+let Pcent = (portion: real, total: real) { round(100 * portion / total, 2) };
+let USCustomers = Customers | where RegionCountryName == 'United States';
+let USCustomerSales = materialize(
+    SalesFact
+    | summarize USTotalCustomerSales = sum(SalesAmount) by CustomerKey
+    | join kind=inner USCustomers on CustomerKey);
+USCustomerSales
+| summarize USTotalStateSales = round(sum(USTotalCustomerSales)) by StateProvinceName
+| lookup (
+    USCustomerSales
+    | summarize arg_max(USTotalCustomerSales, *) by StateProvinceName
+    )
+    on StateProvinceName
+| top 10 by USTotalStateSales
+| project
+    StateProvinceName,
+    StateSales = USTotalStateSales,
+    TopCustomerFirstName = FirstName,
+    TopCustomerLastName = LastName,
+    TopCustomerSales = round(USTotalCustomerSales),
+    TopCustomerPercentage = Pcent(USTotalCustomerSales, USTotalStateSales)
