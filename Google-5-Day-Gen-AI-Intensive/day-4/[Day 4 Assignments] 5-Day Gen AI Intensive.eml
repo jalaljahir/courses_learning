@@ -1,0 +1,672 @@
+Received: from CY8PR10MB6777.namprd10.prod.outlook.com (2603:10b6:930:98::6)
+ by DM4PR10MB6111.namprd10.prod.outlook.com with HTTPS; Wed, 13 Nov 2024
+ 23:45:20 +0000
+Received: from SA0PR12CA0018.namprd12.prod.outlook.com (2603:10b6:806:6f::23)
+ by CY8PR10MB6777.namprd10.prod.outlook.com (2603:10b6:930:98::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.17; Wed, 13 Nov
+ 2024 23:45:19 +0000
+Received: from SA2PEPF00003AE8.namprd02.prod.outlook.com
+ (2603:10b6:806:6f:cafe::77) by SA0PR12CA0018.outlook.office365.com
+ (2603:10b6:806:6f::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8158.16 via Frontend
+ Transport; Wed, 13 Nov 2024 23:45:19 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.216.71)
+ smtp.mailfrom=rsvp.bounces.google.com; dkim=pass (signature was verified)
+ header.d=google.com;dmarc=pass action=none
+ header.from=google.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of rsvp.bounces.google.com
+ designates 209.85.216.71 as permitted sender)
+ receiver=protection.outlook.com; client-ip=209.85.216.71;
+ helo=mail-pj1-f71.google.com; pr=C
+Received: from mail-pj1-f71.google.com (209.85.216.71) by
+ SA2PEPF00003AE8.mail.protection.outlook.com (10.167.248.8) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8158.14
+ via Frontend Transport; Wed, 13 Nov 2024 23:45:19 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:A1F95CB624739FB02B49E77073B94016394F7766299B79C3CB6FD30214164EBF;UpperCasedChecksum:3B8611932BBADA4740D5A9A50833EF514F625FE771FAFC664EA5A0E2E3FEDD7A;SizeAsReceived:2829;Count:16
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-2e9b4a68809so68061a91.1
+        for <jalaljahir@hotmail.com>; Wed, 13 Nov 2024 15:45:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731541519; x=1732146319; darn=hotmail.com;
+        h=to:from:subject:message-id:reply-to:date:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OPEuDcg89ph9/gAn6HLEUh46nKzHcbzHFACXRPaSrAM=;
+        b=je3WQFjSoHp4PyNUW0IDPkZu2JyZf7Kyo3NDUF5VgJF6pptxz/fd58HbX6lyyN3B6b
+         G33gU/krQZ7yOKa5RW+H9yeIZ8JEA6OK0GgdzTt7gWOA50BTUihBk7+n9UqSj9eqZHOI
+         sE9GxBZNny+ZSUmgODYQ/Bys3VtVHIxiTSqdv2I1PFfd1ywWt29rCSrtIhqR7QU4lBJF
+         Bnsc0Nu7DuWys35BgJiokFW4O8+FSZ+00+A6Oz6d6mRiAgHAwG2YI5Yll5xRxsSfFQKI
+         G5dyDRptxR0V6/6NxuEXE6m7P/hlbIgdBK/ByX9vKY2CCO0agO54fQR/Uni6LzmIb3Am
+         PoYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731541519; x=1732146319;
+        h=to:from:subject:message-id:reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OPEuDcg89ph9/gAn6HLEUh46nKzHcbzHFACXRPaSrAM=;
+        b=F34F/HiYxALVqCCNk7PYl8Hl7hFUxvdm2W1IP5q8/6rcT0tXwkCxNfr/4qGJXihVuh
+         XPH/M2AGbwvfbCwMkP05ZPEiht8sj05eEmBwDU1UNAUbwNNAGHEoI2jRqDF0LjlXJNor
+         pR2p1XgImjFm+HUOIsakrLWcsb2JOPsE0iM0Yp90287qH7x3IRp7Gdv9AymVUDcU1tte
+         tVHiDtxLLTs+n5SI3aP24T+CYtgQnHMOBGU9YYKevFrtWnqDQHidJvNpZ1u3yb5urjCC
+         gXRmHo+7+aoBxDExbXVb1iVajA/63lfdQ4skK7nD5AvpELTasAFkgSILD8PU0peVkoDK
+         SFrQ==
+X-Gm-Message-State: AOJu0YzZNBDXasruarkC2EC06mwhDW8Cxp9EVTySqPOZExZicPchLdZl
+	G93OWsb6VpitJ++SE+pjfW1CJHYB7BUvChtjOql7uOpS5RHcUWDz0luoOJtCTA/2EqZePqINMeO
+	9cBUdSf437WxbEoz5+gtWDqbGGeWHsUu+kSUT2g==
+X-Google-Smtp-Source: AGHT+IF7Y7VsyMS6Yc/wCm4mIecdxDa9c6hMnfyhiFS5i3ctjlvdffk0r/I+v/qPJdmB/PRQ
+X-Received: by 2002:a17:90b:3c8a:b0:2e0:7b2b:f6a with SMTP id
+ 98e67ed59e1d1-2e9e4beb055mr11914018a91.17.1731541519137; Wed, 13 Nov 2024
+ 15:45:19 -0800 (PST)
+Date: Wed, 13 Nov 2024 15:45:19 -0800
+Reply-To: Google Events <no-reply-eventsatgoogle@google.com>
+X-Notifications: 29827ca11e784f01b0f3f02145857b1a
+X-Notifications-Bounce-Info: ARtip5wopGst9BfBGP7RKveR_LfyBKBDNAbz9C9OP24DLVkRZ94I8O5izWvoWvv7CfdjOFUQit7SWn6h3zlELllzUUvLyLNP3RKOj8jdIcJPRNSIRQ6zDgBBb_GhY8liHLAsDyQLFHNdMHLSF9fUChDDnBHW6vDpJiXuU21eBTCvMukwE89OctvB5dr8Yfmw0VmdAf3OCY8ezjceRMUk3XeVItZ4Oi_ld_hosMEiEANjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <cl-pUUGjuax-qXduNr7sIA@notifications.google.com>
+Subject: [Day 4 Assignments] 5-Day Gen AI Intensive
+From: Google Events <no-reply-eventsatgoogle@google.com>
+To: jalaljahir@hotmail.com
+Content-Type: multipart/alternative; boundary="00000000000029d2670626d3edb9"
+X-IncomingHeaderCount: 16
+Return-Path:
+ 3Dzo1ZxcKAJgFG-J6HDQ-6N6FLK2L8GG8D68GG8D6.4GE@rsvp.bounces.google.com
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Nov 2024 23:45:19.4711
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ fc88fa28-c571-41f1-3450-08dd043d3b87
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ SA2PEPF00003AE8:EE_|CY8PR10MB6777:EE_|DM4PR10MB6111:EE_
+X-MS-Exchange-Organization-AuthSource:
+ SA2PEPF00003AE8.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/13/2024 11:26:01 PM
+X-MS-Office365-Filtering-Correlation-Id: fc88fa28-c571-41f1-3450-08dd043d3b87
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.216.71
+X-SID-PRA: NO-REPLY-EVENTSATGOOGLE@GOOGLE.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam:
+ BCL:3;ARA:1444111002|9400799024|1680799051|10300799029|47200799018|68400799013|9020799016|58200799015|461199028|9000799047|4302099013|1360799030|1370799030|3412199025|1380799030|440099028|56899033|1602099012|2406899039;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Nov 2024 23:45:19.4398
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc88fa28-c571-41f1-3450-08dd043d3b87
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ SA2PEPF00003AE8.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6777
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.4879788
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8137.022
+X-Microsoft-Antispam-Mailbox-Delivery:
+	wl:1;pcwl:1;ucf:0;jmr:0;ex:0;auth:1;dest:I;OFR:TrustedSenderList;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9065024)(9100341)(944500132)(4810010)(4910033)(9575002)(10195002)(9414026)(9310011)(9220031)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?YXBzY0NTTEhhQUhQRXVOMVFOOFZSVGRpUzlPbmFPZHlKUHp1ZENickJQeUx2?=
+ =?utf-8?B?NmQvTURTaWp1bjNwTTJoanA2cVdTbkE5NlNPcThJNmxYcDFDcXBVdnJYTmtS?=
+ =?utf-8?B?cGNQdFd2bUJEeUI0NVZlWUVIVVNOaVhDVTRFN1FQU0c3NkMvTWV2dUxMaWdt?=
+ =?utf-8?B?dE5mRlVybXAyOE1YUlowcHYxY1lVNVUrYzRvRkRPYlBWNHUxdXZ3d0tBaUF4?=
+ =?utf-8?B?NXhZZ3dQRlJZMURwR3dvVldBSkJSY3hxY25SV3FRYXBxSFM4dmxCV3BTVDFK?=
+ =?utf-8?B?UE5GcFFLTlJQcnZYR0FDMG1VeFVXQ0NyN0lQM2FZcDNiU0R6SlFoc3JQTldj?=
+ =?utf-8?B?a3pUN1F1Z0JNT0t0dEliRkM3RUhOVFVablpRWmNhMnU0SGJRZ2lHeEpYaWRC?=
+ =?utf-8?B?UXBpZ3VDVmppNWgvV1RUMGpNWkpWdjBEMVMzZkZDamV4OC90Z3FQVFdKdGZ0?=
+ =?utf-8?B?YVJMb2Zlck9lOGlqdlJqbENmam51Q0IwWFh2RmVoYysxbVFEdHk5ell1YmUy?=
+ =?utf-8?B?eGE1THlNMmdvUnc1cFBXVElZRkVJZU1RcVFINXFjNWNDUjc3NnRnNlhhOFQw?=
+ =?utf-8?B?MitSMlh6cXNKa2p2WTM2aTNuREJqWjZBVDVsRXNCa1ZMY3RaaGlmdFdLMXJ5?=
+ =?utf-8?B?UmVzb21BUDlwTkx1cFJhWEx5MTlmM2QwTFFhOE9Td3FOT0tzS2h5RGM0Sm9D?=
+ =?utf-8?B?QlJsMFRWYXJlM015VXFZU1pLeDZXbUdTNmtPSU0xN1lOdE55UHNRb3VyTFNU?=
+ =?utf-8?B?SHNlQmpvNFIzcnlKOEtFckk5MktwRXIvendJYXFOU0JaWS9oejEzTVJSc2t3?=
+ =?utf-8?B?b1gzbjg1dFZrK1Q2Sit3VTF0TjBXRlo0ZytKOUVONTNvaFFLS0R5K0QraC9v?=
+ =?utf-8?B?ODR6TVVrZXVDOGNmUnU2SVVvdTc1MWpwZFBsR01yREVMTHJMcENRYmJCdnVi?=
+ =?utf-8?B?U3h6NHhZRVJMeTFQUHhRZEpLT2R1WUQ3VnFmaFpPdy96b1ZwRklra2VnSWFO?=
+ =?utf-8?B?Ull2c240Und5YSs0TW5VODlNdW5kOC9yaEFoVm1ScEZBY1R3ZmJ3SU5tOVNU?=
+ =?utf-8?B?QjNHMmV2NHV0OUZidGEyODQ3TUZBOHFFajBnR0RsQjF1Wm85NmQzWTVEemdk?=
+ =?utf-8?B?b0VLZXdSVGZocTAweVY4eVlLRTUxY0ZsZzZ3ZEhxcTN5eXlGVzV5dThOeHlx?=
+ =?utf-8?B?TEgwMVNXZUZxZTJyeHFTTFBnL0xFTndEcG1Xb0llVGlkODI5cUJLY3lTK204?=
+ =?utf-8?B?Nm5tS3MrQ2Ryck9heWtQS1lzQ1FsY2xKVjZnMVhsN1BiRXkvUVlpV3NSRkg0?=
+ =?utf-8?B?aWVVZ0QvSDJQazF6ejNIankzQllXRzkvMUVuZFAxMll5Nk5wb3llQjZpWDEx?=
+ =?utf-8?B?ZytPUVByUXpHQXpuS1NhYUZtWmExR0o1WVQrZytyRU1YQnFoaTFmOHU1L1Rz?=
+ =?utf-8?B?alN0eVp2ZlljZEJEZzllYUYydW1QdUgrSGNFa3VlcnhVZFhmTEkxZ1pyT0hw?=
+ =?utf-8?B?MUxTVUxOYTBnaUlDdXBIVW1rUUlKSzJNQlEzLzB0RlJ4aUxmZW9PcmJaZHd4?=
+ =?utf-8?B?NnQydzRVS0M4anJwZ3VxT0xYUWZ0VVpQQXBtajlaMnpuQUg4T25kKzhJaS9I?=
+ =?utf-8?B?and4OEloOTh1K2lxQ3hEUzdBbkZ2bkswNE95aWVGV2Y1NEM4d2s3OGl2TkVL?=
+ =?utf-8?B?Z1JCS296TXU1QzJIMFNVU2M4MUNkTVBIZkVaZklCcVRxOEtqRjY3RmtpYjNZ?=
+ =?utf-8?B?NCt1bzNzaW80Q2lGSVZNTHpSTzJBNVAyZ3JiUis3RlNjL2dCbm9GeHpMenM5?=
+ =?utf-8?B?YlNvaWtkMmdocDJIRDBPTU1lRFYzeEd0aCtDdXhIMUxkWHhTQ0MrZUZOUjJM?=
+ =?utf-8?B?b21qSk1seS9XeEU0ZkxqalgybnNoczRtV1RNeFRKUFM0K0UxZThpcFJzQ2F3?=
+ =?utf-8?B?akx5VFkrRjZEUncwTnV2K0c1L0wyT2NDOGdnVUtqMlJNUGdnTnVpZHF3OVk5?=
+ =?utf-8?B?cHBLcno1N25DdmFYV3NoQTYxU1NrckdTeEo3MFNKRWZ2SnNsMWcxM0J6RnE1?=
+ =?utf-8?B?aFBjQjZ4em5TMmUvM0VTaWJuUXpsVUo2ZUZ3VVQyTmdPQU53UU5seGhvdzgw?=
+ =?utf-8?B?TFpzSUxNTi9OQkRzYXU2NGVQL0MzNnVUTmdSNlIvNWFtc0RiRDZucjluYzgr?=
+ =?utf-8?B?dE9CNW1aWER1U05UZXFkaUR3NHo1dEVUTnNxNnpDejVQbk5vZTJPc3BNYitz?=
+ =?utf-8?B?NUdlR1BDS282WVlkVXdlM2lBNXErWWdGaVJjVUM2OHVjTUViTzhsSXV6Qkc0?=
+ =?utf-8?B?VHErU2hQOWhBMk5mZmloYXdpTitBdkNneko2dVdpVnRPWk9ZOHdSdWhqaXNS?=
+ =?utf-8?B?Q2hmNlZySnMvODlON04vNC9aOVh6UzVheklTZnBBekM3RUZJSlpMV2pydWVp?=
+ =?utf-8?B?SHRvQTgrcUIyM3RMYTFWMFdFdFYreFdCZWxKcm1wbzRWQVFDOUhvZkEwSEQ4?=
+ =?utf-8?B?OUQ1SlVkMUVDRnFKeXIwRmJHTitobEQvOEIvZThCMGc3bWgxWHJvbnVKbWJh?=
+ =?utf-8?B?QnhLaG9QWXBaMVgxbzl1VzZvRzUzdlg1Mmd1VHJ3dmhjbUlNRGxZUGcvdHYv?=
+ =?utf-8?B?SEJqL1VZbjJuWTBwbThzWXJkSWVmUHROSVU4cGw3aEFWUVkrV0tOZlhiVHpx?=
+ =?utf-8?B?QWlRSzRhWldZcHpKNFBVUXhjV1pGMlJha2NhNUhzMHRwdktqT1BrTmdVYUhr?=
+ =?utf-8?B?dTNXK053TW8wa0xxMWZacDBuMGM3NHpodUZEY0M1bS9jQTR1TlgzMDVua2hn?=
+ =?utf-8?Q?2fBJ3+D0xdeskiXKJDtZw5ucwZ22Bu4rDx1ZBikRrf?=
+MIME-Version: 1.0
+
+--00000000000029d2670626d3edb9
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+S2FnZ2xlDQoNCg0KDQpIZWxsbyBKYWxhbCwNCg0K8J+OkiBUb2RheSdzIEFzc2lnbm1lbnQNCg0K
+Q29tcGxldGUgVW5pdCA0OiDigJxEb21haW4tU3BlY2lmaWMgTExNc+KAnSwgd2hpY2ggaXM6DQoN
+Cg0KW09wdGlvbmFsXSBMaXN0ZW4gdG8gdGhlIHN1bW1hcnkgcG9kY2FzdCBlcGlzb2RlIGZvciB0
+aGlzIHVuaXQgKGNyZWF0ZWQgYnkgIA0KTm90ZWJvb2tMTSkuDQpSZWFkIHRoZSDigJxTb2x2aW5n
+IERvbWFpbi1TcGVjaWZpYyBQcm9ibGVtcyBVc2luZyBMTE1z4oCdIHdoaXRlcGFwZXIuDQpDb21w
+bGV0ZSB0aGVzZSBjb2RlIGxhYnMgb24gS2FnZ2xlOg0KDQpVc2UgR29vZ2xlIFNlYXJjaCBkYXRh
+IGluIGdlbmVyYXRpb24NClR1bmUgYSBHZW1pbmkgbW9kZWwgZm9yIGEgY3VzdG9tIHRhc2sNCg0K
+DQrwn5KhIFdoYXQgWW91J2xsIExlYXJuDQoNCkluIHRvZGF5J3MgcmVhZGluZywgeW91J2xsIGRl
+bHZlIGludG8gdGhlIGNyZWF0aW9uIGFuZCBhcHBsaWNhdGlvbiBvZiAgDQpzcGVjaWFsaXplZCBM
+TE1zIGxpa2UgU2VjTE0gYW5kIE1lZExNL01lZC1QYUxNLCB3aXRoIGluc2lnaHRzIGZyb20gdGhl
+ICANCnJlc2VhcmNoZXJzIHdobyBidWlsdCB0aGVtLg0KDQpJbiB0aGUgY29kZSBsYWJzIHlvdSB3
+aWxsIGxlYXJuIGhvdyB0byBhZGQgcmVhbCB3b3JsZCBkYXRhIHRvIGEgbW9kZWwgIA0KYmV5b25k
+IGl0cyBrbm93bGVkZ2UgY3V0LW9mZiBieSBncm91bmRpbmcgd2l0aCBHb29nbGUgU2VhcmNoLiBZ
+b3Ugd2lsbCBhbHNvICANCmxlYXJuIGhvdyB0byBmaW5lLXR1bmUgYSBjdXN0b20gR2VtaW5pIG1v
+ZGVsIHVzaW5nIHlvdXIgb3duIGxhYmVsZWQgZGF0YSB0byAgDQpzb2x2ZSBjdXN0b20gdGFza3Mu
+DQoNCvCfk4sgUmVtaW5kZXJzIGFuZCBBbm5vdW5jZW1lbnRzDQoNCg0KSGVyZSBpcyB0aGUgcmVj
+b3JkaW5nIGZyb20gRGF5IDMncyBsaXZlc3RyZWFtLg0KVGhlIG5leHQgbGl2ZXN0cmVhbSB3aXRo
+IFBhaWdlIEJhaWxleSBpcyB0b21vcnJvdyBhdCAycG0gUFNULyA1cG0gRVNULyAxMHBtICANClVU
+Qy4gQ2xpY2sgaGVyZSB0byBqb2luISBMaXZlc3RyZWFtIGd1ZXN0czogU2NvdHQgQ291bGwsIEFu
+dG9uaW8gR3VsbGksICANCkFuYW50IE5hd2FsZ2FyaWEsIENocmlzdG9waGVyIFNlbXR1cnMsIGFu
+ZCBVbWVzaCBTaGFua2FyLg0KRmluZCBhIGNvbXBsZXRlIGxpc3Qgb2Ygc2NoZWR1bGVkIGxpdmVz
+dHJlYW1zIGFuZCBwYXN0IHJlY29yZGluZ3MgaGVyZS4NCkJlIHN1cmUgdG8gYXNrIGFsbCB5b3Vy
+IHF1ZXN0aW9ucyBhYm91dCB0aGUgcG9kY2FzdCwgcmVhZGluZ3MsIGFuZCBjb2RlIGxhYiAgDQpv
+biBEaXNjb3JkLg0KDQpIYXBweSBsZWFybmluZyBhbmQgc2VlIHlvdSB0b21vcnJvdywNCg0KVGhl
+IEthZ2dsZSBUZWFtDQoNCg0KDQoNCg0KDQoNCg0KR29vZ2xlDQoNCsKpIDIwMjQgS2FnZ2xlLCBJ
+bmMgMTYwMCBBbXBoaXRoZWF0cmUgUGt3eSBNb3VudGFpbiBWaWV3LCBDQSA5NDA0Mw0KDQoNClRo
+aXMgZW1haWwgaGFzIGJlZW4gc2VudCB0byBqYWxhbGphaGlyQGhvdG1haWwuY29tLiBJZiB5b3Ug
+bm8gbG9uZ2VyIHdpc2ggIA0KdG8gcmVjZWl2ZSBlbWFpbHMgYWJvdXQgdGhpcyBldmVudCwgcGxl
+YXNlIHVuc3Vic2NyaWJlIGhlcmUuDQoNCg0KDQoNCg0KDQoNCg==
+--00000000000029d2670626d3edb9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+ =20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <meta name=3D"robots" content=3D"no index">
+ =20
+ =20
+  <style>
+    html {
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: 100%;
+    }
+    body {
+      font-family: Roboto, Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      color: #000;
+      -webkit-text-size-adjust: none !important;
+      -webkit-font-smoothing: antialiased !important;
+      -ms-text-size-adjust: none !important;
+    }
+    table, tr, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    a:link, a:visited, a:hover, a:active {
+      color: #4285f4;
+      text-decoration: none;
+    }
+    .appleLinks a {
+      color: #000 !important;
+      text-decoration: none !important;
+    }
+    strong {
+      font-weight: bold !important;
+    }
+    em {
+      font-style: italic !important;
+    }
+    .yshortcuts a span {
+      color: inherit !important;
+      border-bottom: none !important;
+    }
+    .ReadMsgbody1 {
+      width: 100%;
+    }
+    .ExternalClass {
+      width: 100%;
+    }
+    .ExternalClass * {
+      line-height: 100%
+    }
+    td {
+      -webkit-text-size-adjust: none;
+    }
+    a[href^=3Dtel] {
+      color: inherit;
+      text-decoration: none;
+    }
+    .mob-hide {
+      display: none !important;
+    }
+    div, p, a, li, td {
+      -webkit-text-size-adjust: none;
+    }
+    td {
+      text-decoration: none !important;
+    }
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+    @media screen and (max-width: 480px) {
+      .pd {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+    }
+  </style>
+</head>
+<body style=3D"margin: 10 !important; padding: 0 0 0 0 !important; backgrou=
+nd-color: #f2f2f2;"><img src=3D"https://notifications.googleapis.com/email/=
+t/AFG8qyXFsp0p-xbFQiluN6V4Cr7J8lBOem3Strw2UCupFkxWsRWyiFJmov_dpD6UONv03Q9e8=
+qb7vbqbA8x08RHa5iRD0nVG3cOFtgTaFdWv6rAtQ4wWrrmuSAMiXHGU3nJGmfe3rMMLs9u8u01Z=
+vDYfzWtHQVKoGecaiOLPdX_6-Bkc8biSIE0ur4qdYO0hjk-oyxjvhUxs3-AGzdJvCmvuB7rf98j=
+wZVD7fYm3m5AKaRLIzm0-0ZQXUlMN_jr58MpnvX4ydU1pJUT0FpfPJDVVKi6Q2P9PnrgkoE2RgE=
+2GZOW-8XQ/a.gif" width=3D"1" height=3D"1">
+
+<table style=3D"max-width: 600px; width: 100%; margin: 0 auto; text-align: =
+center;" border=3D"0" width=3D"480" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding-top: 10;" align=3D"center" valign=3D"top">
+<table>
+<tbody>
+<tr>
+<td style=3D"padding: 0 30px 0 30px;" align=3D"center" valign=3D"top">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"font-family: Roboto, Helvetica, Arial sans-serif; font-size: 1=
+2px; line-height: 22px; color: #5f6368; letter-spacing: 0.25px; padding-bot=
+tom: 20px;" align=3D"center" valign=3D"top">
+<p></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table id=3D"templateColumns" style=3D"width: 100%;" border=3D"0" width=3D"=
+100%" cellspacing=3D"10" cellpadding=3D"10px">
+<tbody>
+<tr>
+<td class=3D"templateColumnContainer" style=3D"width: 50%;" align=3D"center=
+" valign=3D"top" width=3D"50%">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td class=3D"leftColumnContent"><img class=3D"columnImage" style=3D"height:=
+ 48px; outline: none; text-decoration: none; display: block; margin-left: a=
+uto; margin-right: auto;" src=3D"https://storage.googleapis.com/kaggle-medi=
+a/Images/kaggle_site_logo.png" alt=3D"Kaggle" width=3D"124" height=3D"auto"=
+></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style=3D"-webkit-border-radius: 0; -moz-border-radius: 0; border-radius=
+: 0; border: 1px solid #efefef;" align=3D"center" valign=3D"top" bgcolor=3D=
+"#ffffff">
+<table style=3D"height: 71px;" border=3D"0" width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"20px 40px">
+<tbody>
+<tr style=3D"height: 47px;">
+<td style=3D"font-family: Roboto, Helvetica, 'Arial sans-serif'; font-size:=
+ 14px; line-height: 24px; color: #414347; padding: 20px 40px; height: 47px;=
+" align=3D"left" valign=3D"top">
+<p>Hello Jalal,</p>
+<p><strong>=F0=9F=8E=92 Today=E2=80=99s Assignment</strong></p>
+<p>Complete Unit 4: =E2=80=9CDomain-Specific LLMs=E2=80=9D, which is:</p>
+<ul>
+<li>[Optional] Listen to the summary <a href=3D"https://na01.safelinks.prot=
+ection.outlook.com/?url=3Dhttps%3A%2F%2Fnotifications.googleapis.com%2Femai=
+l%2Fredirect%3Ft%3DAFG8qyWo69r6YxZBhTM104ZNktOM184EJWOnCdRZShul0_ABeQwko4rZ=
+8SpDcZ6I_h1f0VIcprIpsfOp_mY-d_UDvTPkYpCFsehtn5qFBhQawZniJvEkZ45LTdSHFsopwt7=
+5fXgZqn0LGH0lCADo7hHHYx6izm8YRTF3ke61xAUYZg_M8u42sBF0hPIiAfWnpQa7cBKuCfvRvO=
+mprtOnh3EeeMeSyFSRaGM9c3obkAUVqZnWE04Aq2kQMIAaiFlEtYnFLg%26r%3DeJzLKCkpKLbS=
+16_MLy0p1UtK1U8yTDSJ8g-0iEjxBACSrAmV%26s%3DALHZ2r55r-8F1uHIxOVXgO2LV_2E&amp=
+;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7C84df9e7fe9f640afb43=
+5aaaaaaaaaaaa%7C1%7C0%7C638671383211421964%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0=
+eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjo=
+yfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Dcza5hip9ZMbjm8XTwviiHHs6lxEwpzkuAahRLFEu=
+9lU%3D&amp;reserved=3D0" originalsrc=3D"https://notifications.googleapis.co=
+m/email/redirect?t=3DAFG8qyWo69r6YxZBhTM104ZNktOM184EJWOnCdRZShul0_ABeQwko4=
+rZ8SpDcZ6I_h1f0VIcprIpsfOp_mY-d_UDvTPkYpCFsehtn5qFBhQawZniJvEkZ45LTdSHFsopw=
+t75fXgZqn0LGH0lCADo7hHHYx6izm8YRTF3ke61xAUYZg_M8u42sBF0hPIiAfWnpQa7cBKuCfvR=
+vOmprtOnh3EeeMeSyFSRaGM9c3obkAUVqZnWE04Aq2kQMIAaiFlEtYnFLg&amp;r=3DeJzLKCkp=
+KLbS16_MLy0p1UtK1U8yTDSJ8g-0iEjxBACSrAmV&amp;s=3DALHZ2r55r-8F1uHIxOVXgO2LV_=
+2E" shash=3D"bENyfvJup24K6BsgMpMewPcojDCAVsum5+nSqCqHyFNrfS5FIIXD8jgeSJ0GKn=
+ZgyKjoCWWn1jQB2vprxANa4xM6ZWqQnG4alxwXSVXjU4saI9NnLr6chm+Ui+JBOmJPqlaWITNyT=
+9fusoMxoWcEL/CVmplFKLZI0plRqRzwtSI=3D" target=3D"_blank" rel=3D"noopener">p=
+odcast episode</a> for this unit (created by <a href=3D"https://na01.safeli=
+nks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fnotifications.googleapis.co=
+m%2Femail%2Fredirect%3Ft%3DAFG8qyURDGatIrUHH9WP3GAczwtGSQdmIm--RGr4cd20wgW7=
+Di5SuAU-JLPYF-lqsC0tqB653jOUy5PlVMW5g1vmWkgOUQvCz7JmRCSHkLSFOnyWKHZDTza5CL-=
+AwMWNW-h3i_YrPZMRYiiG0_pdL4bxLXjf1cecnCkPZjm9b6R3XIoH8UmnlTUuUTGzRJx4P7sMgo=
+pMgHIlRkbE8wFgqOAmfdnnXda12PXE0u_XGinTNfGUCASTxUO5WjVp99qcRsChxw%26r%3DeJzL=
+KCkpKLbS18_LL0lNys_PzsnVS8_PT89J1QcAhrkJ4A%26s%3DALHZ2r4MSKpznGZthl1gO97oIm=
+8e&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7C84df9e7fe9f64=
+0afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211446838%7CUnknown%7CTWFpbGZsb3d8ey=
+JFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsI=
+ldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DX1lFC64e%2FWpGAmPixOhbgaRHmVR%2Ff8=
+SWNTkGwxPFbPY%3D&amp;reserved=3D0" originalsrc=3D"https://notifications.goo=
+gleapis.com/email/redirect?t=3DAFG8qyURDGatIrUHH9WP3GAczwtGSQdmIm--RGr4cd20=
+wgW7Di5SuAU-JLPYF-lqsC0tqB653jOUy5PlVMW5g1vmWkgOUQvCz7JmRCSHkLSFOnyWKHZDTza=
+5CL-AwMWNW-h3i_YrPZMRYiiG0_pdL4bxLXjf1cecnCkPZjm9b6R3XIoH8UmnlTUuUTGzRJx4P7=
+sMgopMgHIlRkbE8wFgqOAmfdnnXda12PXE0u_XGinTNfGUCASTxUO5WjVp99qcRsChxw&amp;r=
+=3DeJzLKCkpKLbS18_LL0lNys_PzsnVS8_PT89J1QcAhrkJ4A&amp;s=3DALHZ2r4MSKpznGZth=
+l1gO97oIm8e" shash=3D"l4YokYrudBgHtAkSatEcML/IBIy/yuCKld7+KMZHbP6V/TaEN0WID=
+ukXDrmhcZ05tl2m4zlY7VRGuykCbugtejN18r2M92X84IJ/CJU65HaM7oCvA9lMXGjfHiRzuQlc=
+RFPnKhrKCAlH/QJerhGPM9ul+O8HJD0PANv1rsoih8k=3D" target=3D"_blank" rel=3D"no=
+opener">NotebookLM</a>).</li>
+<li>&nbsp;&nbsp;Read the <a href=3D"https://na01.safelinks.protection.outlo=
+ok.com/?url=3Dhttps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect=
+%3Ft%3DAFG8qyWD5-9gyvaD52020TPm27qWYqEcIJTyUcI3poytBQ6AdmyZWVM8oOozJIC5NVqi=
+HRziU2xvyyYWsNr92ZH7Wp1UZsl3j2GR3MZW_p79IntoPcM8Lbw60hJnAatzNPJh-jyeqYnZt2R=
+BCu7Hhw7NLsDpdIfmu7Ngkj6ZF4MUpw4qgtUS3NGmv9tKx8gXfbAcRoZiXX9WwJWRYpav-UIl8Y=
+zEyqfrQ3O0SrjrwHMSt3xlwxAgiZAJtLGa9_xamNm69w%26r%3DeJwVyUESgCAIAMAXofd-Y0rK=
+BMKIxfeb9rpjb_Mj54hId-mdMVWVHIM2WjFc4MovzQ5NpdB0cMNKF1WwpSejODz-P7P4B5r-HiI=
+%26s%3DALHZ2r6-k4RvaiWCat_rzewl-fgc&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f=
+1345008dd043d3b87%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211=
+463527%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIs=
+IlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Dq=
+AkERKyCdGVTdgWxF0t%2F8L7QRritdg6ZzI8sZaLNExQ%3D&amp;reserved=3D0" originals=
+rc=3D"https://notifications.googleapis.com/email/redirect?t=3DAFG8qyWD5-9gy=
+vaD52020TPm27qWYqEcIJTyUcI3poytBQ6AdmyZWVM8oOozJIC5NVqiHRziU2xvyyYWsNr92ZH7=
+Wp1UZsl3j2GR3MZW_p79IntoPcM8Lbw60hJnAatzNPJh-jyeqYnZt2RBCu7Hhw7NLsDpdIfmu7N=
+gkj6ZF4MUpw4qgtUS3NGmv9tKx8gXfbAcRoZiXX9WwJWRYpav-UIl8YzEyqfrQ3O0SrjrwHMSt3=
+xlwxAgiZAJtLGa9_xamNm69w&amp;r=3DeJwVyUESgCAIAMAXofd-Y0rKBMKIxfeb9rpjb_Mj54=
+hId-mdMVWVHIM2WjFc4MovzQ5NpdB0cMNKF1WwpSejODz-P7P4B5r-HiI&amp;s=3DALHZ2r6-k=
+4RvaiWCat_rzewl-fgc" shash=3D"O76SxgIysriUbrQ7p+USE8XxMglshj4k1g+raSIZ+fezw=
+B4luIzu24okA6+FqCpCO0DLNggSxFECW7LEnayquP5NxuJsUZVOZ3/5m1enr1TqB5yzQM2dlZBl=
+vePlphU1CP0Sk5OkvIWf3MHhhxyFph9FtHhc3XUdPzv9AYNHEEU=3D" target=3D"_blank" r=
+el=3D"noopener">=E2=80=9CSolving Domain-Specific Problems Using LLMs=E2=80=
+=9D whitepaper</a>.</li>
+<li>Complete these code labs on Kaggle:
+<ol>
+<li>&nbsp;<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dh=
+ttps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAFG8qyU1=
+QQPf_1QC6gU0s_XDANiIg-N-EaA0XUUTiEnpQ2XScmJNgqTRHMlD0ClKoG_mLUFcz-ko4vT9avg=
+sskp9xWaAxnCXkDBF3820Q8lv1ypmaX_HOnIFza8dacYWYNWl0iiRhNzQjHJZ6F17tsBuSlLp-i=
+DMNG2juwt_9Rmy09p4e4cQKMB7M2PNuLUBtgihTBFA7zSaYAIj76IUmAl8Qy9eT92w73tscQVOH=
+mM4y71uNPTiu3pLfzJAmF3L2eFPew%26r%3DeJwNyjEOwCAIAMAXIUun_oYIQWOVBmxIf9_efG3=
+vO07EzCyDVC8p1SZWY8FJPno0cUGmFw5Qsz9ACHltoG7P4r70A2UuGXA%26s%3DALHZ2r6e3tVD=
+_kxNgnpjKJqmTmCE&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7=
+C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211480863%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D6RtIrKfRU39RUrpyLm2J=
+yToTIInDrzDDgTGvmEha0ro%3D&amp;reserved=3D0" originalsrc=3D"https://notific=
+ations.googleapis.com/email/redirect?t=3DAFG8qyU1QQPf_1QC6gU0s_XDANiIg-N-Ea=
+A0XUUTiEnpQ2XScmJNgqTRHMlD0ClKoG_mLUFcz-ko4vT9avgsskp9xWaAxnCXkDBF3820Q8lv1=
+ypmaX_HOnIFza8dacYWYNWl0iiRhNzQjHJZ6F17tsBuSlLp-iDMNG2juwt_9Rmy09p4e4cQKMB7=
+M2PNuLUBtgihTBFA7zSaYAIj76IUmAl8Qy9eT92w73tscQVOHmM4y71uNPTiu3pLfzJAmF3L2eF=
+Pew&amp;r=3DeJwNyjEOwCAIAMAXIUun_oYIQWOVBmxIf9_efG3vO07EzCyDVC8p1SZWY8FJPno=
+0cUGmFw5Qsz9ACHltoG7P4r70A2UuGXA&amp;s=3DALHZ2r6e3tVD_kxNgnpjKJqmTmCE" shas=
+h=3D"D2CRzUPF5o71lB6gfk4FlNPos9siyqN5J5mP9uF7JRnVAHAdquCqsxIHbJri/C5GlpRgxv=
+8U0qxU5EFCFfw4nH2HrXvJu9ixRN3Wh3myZWysvm4YgOFlNwONPsAnnCO1hSjuQlX7Ge6GIvwwN=
+QgjwpdNnhogxG5EQnHom1Icy8U=3D" target=3D"_blank" rel=3D"noopener">Use</a> G=
+oogle Search data in generation</li>
+<li><a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3=
+A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAFG8qyXFEFcweF=
+r8bbtIub23mNVHOG5Yr0NHDrxyF978Qs7pKBWfSpw6ulUqMh9-rr0P7Yev52HbOUeajgchqPajV=
+kX35vaQWtDB5oTKJTORcuFtmlrfYB8eQH0UpgfJaEPzsY_Mknu1j3xwkClolr8VuitOfh1ry4-4=
+7HZhTy15xnfBGuoaK1xiVQWQeNP2nrJIDuVJ0RRdDsnTVZXNElTvWi7EHb-LEOmIYAXF7w5QZil=
+Wb2pi7DgJSt8bxMKsMZ9Dsw%26r%3DeJwNyjEOwCAIAMAXIUun_oYoVaOAUYzp79ubr7iPdSOec=
+0KjnDuHaILREqPQbHUVnoyJXrjgqcrgW6tmIIh7uQnIX_sHr-8aTg%26s%3DALHZ2r7Z7PGe24z=
+I8ZGYamAqIq7m&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7C84=
+df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211496895%7CUnknown%7CTWF=
+pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj=
+oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D6fkNKEZ0ZcXlb35HXuJVX9X=
+%2FhA3thfEVzIBXrxO1cDw%3D&amp;reserved=3D0" originalsrc=3D"https://notifica=
+tions.googleapis.com/email/redirect?t=3DAFG8qyXFEFcweFr8bbtIub23mNVHOG5Yr0N=
+HDrxyF978Qs7pKBWfSpw6ulUqMh9-rr0P7Yev52HbOUeajgchqPajVkX35vaQWtDB5oTKJTORcu=
+FtmlrfYB8eQH0UpgfJaEPzsY_Mknu1j3xwkClolr8VuitOfh1ry4-47HZhTy15xnfBGuoaK1xiV=
+QWQeNP2nrJIDuVJ0RRdDsnTVZXNElTvWi7EHb-LEOmIYAXF7w5QZilWb2pi7DgJSt8bxMKsMZ9D=
+sw&amp;r=3DeJwNyjEOwCAIAMAXIUun_oYoVaOAUYzp79ubr7iPdSOec0KjnDuHaILREqPQbHUV=
+noyJXrjgqcrgW6tmIIh7uQnIX_sHr-8aTg&amp;s=3DALHZ2r7Z7PGe24zI8ZGYamAqIq7m" sh=
+ash=3D"LRrNW/D6/WWuUMnFUZG1HTuEt9sP7J2x+8D1xnD2BAXlKZQtscSPuMYTqXtN7VnGPik+=
+QJD1Z1AoT8egufTBR+w6ZSpoHRLGfjNvkAXSEDXkUSFmugVco7Aa2YvZ0IClA3Wf0iXaUuabBl2=
+zM2LzVc/A8i/vbYW2Lo5n3EFEdRM=3D" target=3D"_blank" rel=3D"noopener">Tune</a=
+> a Gemini model for a custom task</li>
+</ol>
+</li>
+</ul>
+<p><strong>=F0=9F=92=A1 What You=E2=80=99ll Learn</strong></p>
+<p>In today=E2=80=99s reading, you=E2=80=99ll delve into the creation and a=
+pplication of specialized LLMs like SecLM and MedLM/Med-PaLM, with insights=
+ from the researchers who built them.</p>
+<p>In the code labs you will learn how to add real world data to a model be=
+yond its knowledge cut-off by grounding with Google Search. &nbsp;You will =
+also learn how to fine-tune a custom Gemini model using your own labeled da=
+ta to solve custom tasks.</p>
+<p><strong>=F0=9F=93=8B Reminders and Announcements</strong></p>
+<ul>
+<li>Here is the <a href=3D"https://na01.safelinks.protection.outlook.com/?u=
+rl=3Dhttps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAF=
+G8qyUpCjGTWo9JKqefI_ETzBfI55ieDkxJwIOTplsERx1AU3Aaryg-wP481_Wuym7lcm50hdnNt=
+2eBFBNNNp14SCA3nV2WrJOWL6VJR1dCaO6A8TtWGPWRtD6lwEUQT13gdOR2mW0zkkNCt4Cyx5xR=
+3T_uHHZqBh_xdTjVEo881vp-0X_RnPgpUW6Kj9_bhcjgymWFhye5B58PEMNKHLlvZAQIDFRCRub=
+a7V6LSLkf2RwQ4wMIUI5veCLBCvu55uyKXQ%26r%3DeJzLKCkpKLbS1y8vL9erzC8tKU1K1UvOz=
+9UvTyxJzrAvs_UIDC3xDc8PcXQxUcvJLC6xDfApdEsM8Uw3ya0s1U0yDMipyCwJTIk0CI30TKos=
+1jVKLVbLzEtJrbA1AQDpRCAz%26s%3DALHZ2r5V08qnQQCBQdX0h3ZflE1y&amp;data=3D05%7=
+C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7C84df9e7fe9f640afb435aaaaaaaaaaa=
+a%7C1%7C0%7C638671383211513860%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRy=
+dWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C=
+0%7C%7C%7C&amp;sdata=3DfwPmAnrKdU1A34AJR8VrgkYCYrl32QupEUGxappCiVM%3D&amp;r=
+eserved=3D0" originalsrc=3D"https://notifications.googleapis.com/email/redi=
+rect?t=3DAFG8qyUpCjGTWo9JKqefI_ETzBfI55ieDkxJwIOTplsERx1AU3Aaryg-wP481_Wuym=
+7lcm50hdnNt2eBFBNNNp14SCA3nV2WrJOWL6VJR1dCaO6A8TtWGPWRtD6lwEUQT13gdOR2mW0zk=
+kNCt4Cyx5xR3T_uHHZqBh_xdTjVEo881vp-0X_RnPgpUW6Kj9_bhcjgymWFhye5B58PEMNKHLlv=
+ZAQIDFRCRuba7V6LSLkf2RwQ4wMIUI5veCLBCvu55uyKXQ&amp;r=3DeJzLKCkpKLbS1y8vL9er=
+zC8tKU1K1UvOz9UvTyxJzrAvs_UIDC3xDc8PcXQxUcvJLC6xDfApdEsM8Uw3ya0s1U0yDMipyCw=
+JTIk0CI30TKos1jVKLVbLzEtJrbA1AQDpRCAz&amp;s=3DALHZ2r5V08qnQQCBQdX0h3ZflE1y"=
+ shash=3D"e2YaWO5p/j0rKnZdzKI/6TOcm7anfZrvOhgNGMdzWFnWtHTPJebAyX0jHWH3+0CCy=
+awdmQlODvtVush32MDOUFNLQ8OxP9UJtMSWXxxvKH7g4J6UuQ1qo2h4RvVdjjURf28dBo3lmArk=
+MY7ZfGLY72mbyPUeJ7F/tBaLi2hOuZo=3D" target=3D"_blank" rel=3D"noopener">reco=
+rding from Day 3=E2=80=99s &nbsp;livestream</a>.</li>
+<li>The next livestream with Paige Bailey is tomorrow at 2pm PST/ 5pm EST/ =
+10pm UTC. <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dh=
+ttps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAFG8qyXt=
+j1mVLuCyDyli3CEDffbj_BNJkOYiWyqOsDLyB-f3J-8p4j9_GSvaS-FjDNW7bczn85d55hXp5gK=
+pBKz9Ss9BMPkJl6ySSEO9sV1nF67kURpoCDdTbWtE_8gkrhHghWmzsB-BDPHu17Fm8tR3O7_vkA=
+OgcUmPT3OocYGByUpEVuGp-s_K7-tioLuY9ybVPwTGvDX3mMM5wFwnYY7KXN6DTe0jr1slo24Zi=
+V6ONpqQi3yI7ptWGMNyqPEWFTtXdw%26r%3DeJzLKCkpKLbS1y8vL9erzC8tKU1K1UvOz9UvTyx=
+JzrAvs81PKSv18fUKDw0OVcvJLC6xDfApdEsM8Uw3ya0s1U0yDMipyCwJTIk0CI30TKos1jVKLV=
+bLzEtJrbA1AQACCiCm%26s%3DALHZ2r7n-4DRoOiU1DrlgWhjyUfm&amp;data=3D05%7C02%7C=
+%7Cfc88fa28c57141f1345008dd043d3b87%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%=
+7C0%7C638671383211530044%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIl=
+YiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7=
+C%7C&amp;sdata=3DFD0W7h0dkRogpZYG5a%2F7Qim9yhqjh1GEPi1w9KOBa2k%3D&amp;reser=
+ved=3D0" originalsrc=3D"https://notifications.googleapis.com/email/redirect=
+?t=3DAFG8qyXtj1mVLuCyDyli3CEDffbj_BNJkOYiWyqOsDLyB-f3J-8p4j9_GSvaS-FjDNW7bc=
+zn85d55hXp5gKpBKz9Ss9BMPkJl6ySSEO9sV1nF67kURpoCDdTbWtE_8gkrhHghWmzsB-BDPHu1=
+7Fm8tR3O7_vkAOgcUmPT3OocYGByUpEVuGp-s_K7-tioLuY9ybVPwTGvDX3mMM5wFwnYY7KXN6D=
+Te0jr1slo24ZiV6ONpqQi3yI7ptWGMNyqPEWFTtXdw&amp;r=3DeJzLKCkpKLbS1y8vL9erzC8t=
+KU1K1UvOz9UvTyxJzrAvs81PKSv18fUKDw0OVcvJLC6xDfApdEsM8Uw3ya0s1U0yDMipyCwJTIk=
+0CI30TKos1jVKLVbLzEtJrbA1AQACCiCm&amp;s=3DALHZ2r7n-4DRoOiU1DrlgWhjyUfm" sha=
+sh=3D"gRPTTgzI+05vnQmKwTcNUDTGD2atNpb5et6qgwdKIH4yL7eBaiuORZ/mB1vo9r9oHkxYk=
+lQWSdSTY+vV77SjtdxnEfMJLZEGOKB/zATo4Fp36X8BloLIdYDwuP6Vn1ULp0kCoFZFJeUp5I7x=
+UTnyEayR36ho9x7b7J0hssQkbTg=3D" target=3D"_blank" rel=3D"noopener">Click he=
+re to join</a>! Livestream guests: Scott Coull, Antonio Gulli, Anant Nawalg=
+aria, Christopher Semturs, and Umesh Shankar.</li>
+<li>Find a <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3D=
+https%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAFG8qyW=
+YTluHnK0EVfNKyWnC92JICWj0JXWkERkmtVwZsvSyC-FjPr2RFsXL4CvPuDxvEwndqAh3X0LfDb=
+TLkMnHEjENmkAQBKZJeyCSXawq9Dt3q2P1XijWCgf2roUNg1LcuWB1JeuKmIwYpcef4y72hIIuc=
+dVK8cJqnao483FHwTRC-ngKUl2hB4S3Owz6-0iPTWO6A4C1XH0abNPh5XV8z6mOVx9ys5YQu2qC=
+Wg0BsTE4JNAlJQ8oQEOsek9HY8RNEw%26r%3DeJzLKCkpKLbS1y8vL9erzC8tKU1K1UvOz9UvyE=
+mszMksLrEHEbYBPoVuiSGe6Sa5laW6SYYBORWZJYEpkQahkZ5JlcW6RqnFAN7cGoQ%26s%3DALH=
+Z2r6dKh3eHsHxd80OPCcJDI_a&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd0=
+43d3b87%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211546075%7CU=
+nknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW=
+4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Dqkdrzugx5Vh=
+WqW7e2DdkUPhiwV3U6WBGSZD93oIiNE4%3D&amp;reserved=3D0" originalsrc=3D"https:=
+//notifications.googleapis.com/email/redirect?t=3DAFG8qyWYTluHnK0EVfNKyWnC9=
+2JICWj0JXWkERkmtVwZsvSyC-FjPr2RFsXL4CvPuDxvEwndqAh3X0LfDbTLkMnHEjENmkAQBKZJ=
+eyCSXawq9Dt3q2P1XijWCgf2roUNg1LcuWB1JeuKmIwYpcef4y72hIIucdVK8cJqnao483FHwTR=
+C-ngKUl2hB4S3Owz6-0iPTWO6A4C1XH0abNPh5XV8z6mOVx9ys5YQu2qCWg0BsTE4JNAlJQ8oQE=
+Osek9HY8RNEw&amp;r=3DeJzLKCkpKLbS1y8vL9erzC8tKU1K1UvOz9UvyEmszMksLrEHEbYBPo=
+VuiSGe6Sa5laW6SYYBORWZJYEpkQahkZ5JlcW6RqnFAN7cGoQ&amp;s=3DALHZ2r6dKh3eHsHxd=
+80OPCcJDI_a" shash=3D"iX15j3Ed4F8fJkn2q+z/FplHib7549Q+HVEnZ+xMdmN5HZU9wz7S3=
+FKRgQMBoPLU0dAHAHGe0eSGo0TCjjsK7ObIsXNRlkEhaxl04v44z5vw6biH2wCxULp/OKZHKN7B=
+5DmLsIaNINJXxOvC3eE26/WQiI3YEWK0kFkhadcAliA=3D" target=3D"_blank" rel=3D"no=
+opener">complete list of scheduled livestreams and past recordings here</a>=
+.</li>
+<li>Be sure to ask all your questions about the podcast, readings, and code=
+ lab on <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhtt=
+ps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3DAFG8qyUhHM=
+q-S5ijIgtPgeIbYiOaym1B7asW6mbE432BaLhBvUQ0cE3fg7wzBGWUsvaD9AP9OiI0EbLlVp4Cw=
+433-YqVAm5phh6Y9LsTb7bBHn285JWw3PQxF0ULmGkGa4LBcxM4c5BxahOv1Nu4aKxD7f4X9Phb=
+2n8oFurAZET7fdeOdmG-uHd7-DS_wbfVGrdSI8ac_r65Ng2yViFQ6h8qHTCWulaEvK5YAxe84o2=
+EqiPHwKfcOzMJAQHwPU3he46G2w%26r%3DeJzLKCkpKLbS10_JLE7OL0rRS0_XT_crcraMKC0BA=
+IraCcM%26s%3DALHZ2r4HrLfnBefhrhYjgvpkFEbC&amp;data=3D05%7C02%7C%7Cfc88fa28c=
+57141f1345008dd043d3b87%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671=
+383211561933%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMD=
+AwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sda=
+ta=3DgF%2FOn2JnHe0uhQDrtch4vSISoBKD%2Fth%2FFhQeI40rp7E%3D&amp;reserved=3D0"=
+ originalsrc=3D"https://notifications.googleapis.com/email/redirect?t=3DAFG=
+8qyUhHMq-S5ijIgtPgeIbYiOaym1B7asW6mbE432BaLhBvUQ0cE3fg7wzBGWUsvaD9AP9OiI0Eb=
+LlVp4Cw433-YqVAm5phh6Y9LsTb7bBHn285JWw3PQxF0ULmGkGa4LBcxM4c5BxahOv1Nu4aKxD7=
+f4X9Phb2n8oFurAZET7fdeOdmG-uHd7-DS_wbfVGrdSI8ac_r65Ng2yViFQ6h8qHTCWulaEvK5Y=
+Axe84o2EqiPHwKfcOzMJAQHwPU3he46G2w&amp;r=3DeJzLKCkpKLbS10_JLE7OL0rRS0_XT_cr=
+craMKC0BAIraCcM&amp;s=3DALHZ2r4HrLfnBefhrhYjgvpkFEbC" shash=3D"S8TEIkENX7dd=
+v2oYCQmWo7J897nAxgG8lhbeRyVUQF5ARX5VM1lc7scu3hVapJlQm88dWZEsBLx9wdhxjxtVMgj=
+RNq+WzOEwwuU2aouDHwHkCgRcJyl7HWrVXxEsZoxq7xgRlzbcvxbKIbHaMyifzoO9vOHIexYFDb=
+JkRuIwoh8=3D" target=3D"_blank" rel=3D"noopener">Discord</a>.</li>
+</ul>
+<p>Happy learning and see you tomorrow,</p>
+<p>The Kaggle Team&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; mso-line-height-rule: exactly; line-height: 15px;" align=3D"left=
+" valign=3D"top" height=3D"15"></td>
+</tr>
+<tr>
+<td style=3D"padding: 0 30px 30px 30px;" align=3D"center" valign=3D"top">
+<table border=3D"0" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding-top: 40px; padding-bottom: 23px;" align=3D"center" val=
+ign=3D"top"><img style=3D"display: block; margin-left: auto; margin-right: =
+auto;" title=3D"Google" src=3D"https://storage.googleapis.com/kaggle-media/=
+Images/kaggle_site_logo.png" alt=3D"Google" width=3D"86" height=3D"33"></td=
+>
+</tr>
+<tr>
+<td style=3D"font-family: Roboto, Helvetica, Arial sans-serif; font-size: 1=
+4px; line-height: 22px; color: #5f6368; letter-spacing: 0.25px; padding-bot=
+tom: 25px;" align=3D"center" valign=3D"top"><a style=3D"color: #5f6368; tex=
+t-decoration: none;" href=3D"https://na01.safelinks.protection.outlook.com/=
+?url=3Dhttps%3A%2F%2Fnotifications.googleapis.com%2Femail%2Fredirect%3Ft%3D=
+AFG8qyXjYAuCrBIux4yf88Kg2nj7Nr7P7DcacFXOP8VEA3BAifri34jbJ15EvBbRStCcbkKi1Mq=
+DJTh6_UM13rcSI2V9fVW4MtHtTIifEAxdfaHwbfLIkQxkWjFUDipIpRCrKVKM7oDxiQNfoNVhwB=
+ydnFvIWTBmVIGw1MMprI6kKSVvT-xkC550eMQzfMO2buPM87yB1FY7QC20cx4U4BWh1eKEc8UzS=
+7Zr8o7U3i7vZu9F6rfdiA7y8O6Ojkz5O38QyA%26r%3DeJxTBgAAJAAk%26s%3DALHZ2r4KyHIY=
+uTgRYNar-kzP2D9x&amp;data=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7=
+C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638671383211586958%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DngqaSsnQ3wRFHOBUULP6=
+j8p%2BDVsZYYCD1YHs4jtmmSk%3D&amp;reserved=3D0" originalsrc=3D"https://notif=
+ications.googleapis.com/email/redirect?t=3DAFG8qyXjYAuCrBIux4yf88Kg2nj7Nr7P=
+7DcacFXOP8VEA3BAifri34jbJ15EvBbRStCcbkKi1MqDJTh6_UM13rcSI2V9fVW4MtHtTIifEAx=
+dfaHwbfLIkQxkWjFUDipIpRCrKVKM7oDxiQNfoNVhwBydnFvIWTBmVIGw1MMprI6kKSVvT-xkC5=
+50eMQzfMO2buPM87yB1FY7QC20cx4U4BWh1eKEc8UzS7Zr8o7U3i7vZu9F6rfdiA7y8O6Ojkz5O=
+38QyA&amp;r=3DeJxTBgAAJAAk&amp;s=3DALHZ2r4KyHIYuTgRYNar-kzP2D9x" shash=3D"F=
+g7KHQtDN/1uUYS55y6uAcuXHFJui0tXP8EdlrV160GgE1GWZTIHvmm8GhCes8+lc78C6pa3feWX=
+3fEY8q+WYRhI0I1PU6aKAFpcMvLwbK5B7aEl3n1IHOtRk4mnaBL0GwV+hi1ajaAH/fz+T3CmN7J=
+auJFnt5rUoEitib4rIWM=3D">=C2=A9 2024 Kaggle, Inc 1600 Amphitheatre Pkwy Mou=
+ntain View, CA 94043</a></td>
+</tr>
+<tr>
+<td style=3D"font-family: Roboto, Helvetica, Arial sans-serif; font-size: 1=
+4px; line-height: 22px; color: #5f6368; letter-spacing: 0.25px; padding-bot=
+tom: 20px;" align=3D"center" valign=3D"top">
+<p>This email has been sent to jalaljahir@hotmail.com. If you no longer wis=
+h to receive emails about this event, please <a href=3D"https://na01.safeli=
+nks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fnotifications.googleapis.co=
+m%2Femail%2Fredirect%3Ft%3DAFG8qyUvRkMzXSzN7HLsJCX1ZuVacQ7-ru-bcJfsJIBW0ekw=
+E7sGfy_pqTzganmkVyC2L7HtOBpQvge0P-OBZKWodSU5xaS4UTS6_rvyX4oXMUdqcksNmxEI0L2=
+DRoKuXsi8YfuDRvLWO2ElxfcTqY8fK4Y8OkhPoO9AdNJ71vag6sk0CqCmSPvjHoNONjwctwNyXd=
+g8JG8L1T9scIRZwufkkyEkrpPcAoo_PAFqxdKw_X9-Hky0W0PFbYUjim7NZc3K4A%26r%3DeJwV=
+ykkOgzAMAMDfcIQ4OFulquc-wyY2ILGJBPr9tnOeqdajPLruLPfRfuY6jfs-LtIO-9pdW7m4DOf=
+M8pKV5uWdnzZFGwYCkBBRDbDRXo0FdNEFBmrklq3-Ys-g2XPyRgWBbOqDOrWCIWaXs2_GS8o_Ag=
+SHRAwRCFVMtDmyUkJyObjkvyM1MsA%26s%3DALHZ2r51esbSCHj1womBAG2xlbAB&amp;data=
+=3D05%7C02%7C%7Cfc88fa28c57141f1345008dd043d3b87%7C84df9e7fe9f640afb435aaaa=
+aaaaaaaa%7C1%7C0%7C638671383211603680%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hc=
+GkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3=
+D%3D%7C0%7C%7C%7C&amp;sdata=3DIr6Og5eWrvzynHCV7Phmw%2BXUF9IhL4gLjx5AXXDOsdo=
+%3D&amp;reserved=3D0" originalsrc=3D"https://notifications.googleapis.com/e=
+mail/redirect?t=3DAFG8qyUvRkMzXSzN7HLsJCX1ZuVacQ7-ru-bcJfsJIBW0ekwE7sGfy_pq=
+TzganmkVyC2L7HtOBpQvge0P-OBZKWodSU5xaS4UTS6_rvyX4oXMUdqcksNmxEI0L2DRoKuXsi8=
+YfuDRvLWO2ElxfcTqY8fK4Y8OkhPoO9AdNJ71vag6sk0CqCmSPvjHoNONjwctwNyXdg8JG8L1T9=
+scIRZwufkkyEkrpPcAoo_PAFqxdKw_X9-Hky0W0PFbYUjim7NZc3K4A&amp;r=3DeJwVykkOgzA=
+MAMDfcIQ4OFulquc-wyY2ILGJBPr9tnOeqdajPLruLPfRfuY6jfs-LtIO-9pdW7m4DOfM8pKV5u=
+WdnzZFGwYCkBBRDbDRXo0FdNEFBmrklq3-Ys-g2XPyRgWBbOqDOrWCIWaXs2_GS8o_AgSHRAwRC=
+FVMtDmyUkJyObjkvyM1MsA&amp;s=3DALHZ2r51esbSCHj1womBAG2xlbAB" shash=3D"df84R=
+Ef5IjK5Jhnp/7/noZAqTzn/VLmrz+NrkiQpwPy/0rgRlw4Wb1F36u89QeNwjQ189cBqg/7xHEnn=
+VeYYfywfalN1XklYB18/Gh2aN5qWyjyc3v3yPSYW4iKl9+5fIjgBlfuxYOdp5y5bSWzmmDiORpD=
+Dbb9fVb1+i38+Kc0=3D">unsubscribe here</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; mso-line-height-rule: exactly; line-height: 15px;" align=3D"left=
+" valign=3D"top" height=3D"15"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>=
+
+--00000000000029d2670626d3edb9--
