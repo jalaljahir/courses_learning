@@ -1,0 +1,14 @@
+Course slides:
+https://www.deeplearning.ai/courses/machine-learning-specialization/
+https://drive.google.com/file/d/1DkqHZ_dwNmLKRkTE3gJZMM0JQI1Ptlu6/view?__hstc=28198563.431cbe22b62d5cb18712b3fc17b9a6b2.1732735597143.1732738902523.1733064089854.3&__hssc=28198563.2.1733064089854&__hsfp=424417210&submissionGuid=212fe64f-0f20-44b2-90e2-fc2eec91796f
+
+
+
+git repo by others:
+
+https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera
+
+https://github.com/pmulard/machine-learning-specialization-andrew-ng
+
+https://github.com/shantanu1109/Coursera-DeepLearning.AI-Stanford-University-Machine-Learning-Specialization
+
