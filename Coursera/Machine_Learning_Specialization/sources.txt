@@ -8,7 +8,6 @@ git repo by others:
 
 https://github.com/greyhatguy007/Machine-Learning-Specialization-Coursera
 
-https://github.com/pmulard/machine-learning-specialization-andrew-ng
-
 https://github.com/shantanu1109/Coursera-DeepLearning.AI-Stanford-University-Machine-Learning-Specialization
 
+https://github.com/pmulard/machine-learning-specialization-andrew-ng

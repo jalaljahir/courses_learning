@@ -63,7 +63,7 @@ class plt_one_addpt_onclick:
             self.bcalc.on_clicked(self.calc_linear)
         self.bthresh = CheckButtons(axthresh, ('Toggle 0.5 threshold (after regression)',))
         self.bthresh.on_clicked(self.thresh)
-        self.resize_sq(self.bthresh)
+        # self.resize_sq(self.bthresh)
 
  #   @output.capture()  # debug
     def add_data(self, event):
@@ -184,3 +184,22 @@ class plt_one_addpt_onclick:
 
         bcid.lines[0][0].set_ydata([ymax,ymin])
         bcid.lines[0][1].set_ydata([ymin,ymax])
+
+        # # https://community.deeplearning.ai/t/c1-w3-lab1-attributeerror-checkbuttons-object-has-no-attribute-rectangles/714843/3
+        # h = bcid.ax.patches[0].get_height()
+        # bcid.ax.patches[0].set_height(3 * h)
+
+        # ymax = bcid.ax.patches[0].get_bbox().y1
+        # ymin = bcid.ax.patches[0].get_bbox().y0
+
+        # bcid.lines[0][0].set_ydata([ymax, ymin])
+        # bcid.lines[0][1].set_ydata([ymin, ymax])
+
+        # h = bcid.ax.patches.rectangle[0].get_height()
+        # bcid.ax.patches.rectangle[0].set_height(3 * h)
+
+        # ymax = bcid.ax.patches.rectangle[0].get_bbox().y1
+        # ymin = bcid.ax.patches.rectangle[0].get_bbox().y0
+
+        # bcid.lines[0][0].set_ydata([ymax, ymin])
+        # bcid.lines[0][1].set_ydata([ymin, ymax])
