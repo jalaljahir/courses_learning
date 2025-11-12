@@ -1,0 +1,7 @@
+https://facebook.github.io/prophet/docs/outliers.html
+
+https://www.kaggle.com/code/prashant111/tutorial-time-series-forecasting-with-prophet
+
+https://medium.com/data-science/getting-started-predicting-time-series-data-with-facebook-prophet-c74ad3040525
+
+https://martinxpn.medium.com/time-series-analysis-with-python-using-prophet-98-100-days-of-python-689b26e8e222
