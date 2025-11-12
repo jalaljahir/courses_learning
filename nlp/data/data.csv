@@ -1,101 +1,251 @@
 id,date,rating,comments
-1,2024-06-05,5,"Great quality materials. No complaints here, worth every penny. (Test 1)"
-2,2024-09-14,5,"Amazing build quality! It feels premium and works flawlessly. (Test 2) Plus, the color options are fantastic."
-3,2024-07-20,3,
-4,2024-08-09,5,"Outstanding value. Five stars all the way. (Test 4) Plus, the color options are fantastic."
-5,2024-10-19,2,Took forever to get a response from support. Frustrating experience. (Test 5)
-6,2024-09-13,5,"Great quality materials. No complaints here, worth every penny. (Test 6) Plus, the color options are fantastic."
-7,2024-10-13,5,"Outstanding value. Five stars all the way. (Test 7) Plus, the color options are fantastic."
-8,2024-11-11,3,Package arrived damaged due to poor shipping. Had to return it. (Test 8)
-9,2024-06-14,2,
-10,2024-06-27,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 10)"
-11,2024-03-27,2,Package arrived damaged due to poor shipping. Had to return it. (Test 11)
-12,2024-03-15,3,Billing error not resolved quickly. Poor service overall. (Test 12)
-13,2024-12-16,5,Love it! Would recommend to friends and family. (Test 13)
-14,2024-01-28,1,Customer service was unhelpful and rude. Won't buy again. (Test 14)
-15,2024-01-08,2,Late delivery again. This is the second time with your company. (Test 15)
-16,2024-01-12,2,Billing error not resolved quickly. Poor service overall. (Test 16)
-17,2024-09-24,3,Customer service was unhelpful and rude. Won't buy again. (Test 17)
-18,2024-12-21,1,Billing error not resolved quickly. Poor service overall. (Test 18)
-19,2024-01-23,5,Amazing build quality! It feels premium and works flawlessly. (Test 19)
-20,2024-12-22,1,
-21,2024-07-17,1,Customer service was unhelpful and rude. Won't buy again. (Test 21)
-22,2024-01-10,1,Billing error not resolved quickly. Poor service overall. (Test 22)
-23,2024-12-29,3,Billing error not resolved quickly. Poor service overall. (Test 23)
-24,2024-02-15,5,Amazing build quality! It feels premium and works flawlessly. (Test 24)
-25,2024-01-12,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 25)"
-26,2024-09-07,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 26)"
-27,2024-06-29,5,Outstanding value. Five stars all the way. (Test 27)
-28,2024-05-21,3,Billing error not resolved quickly. Poor service overall. (Test 28)
-29,2024-01-16,5,"Great quality materials. No complaints here, worth every penny. (Test 29)"
-30,2024-03-11,3,Customer service was unhelpful and rude. Won't buy again. (Test 30)
-31,2024-11-09,5,"Great quality materials. No complaints here, worth every penny. (Test 31)"
-32,2024-11-05,2,"Package arrived damaged due to poor shipping. Had to return it. (Test 32) Plus, the color options are fantastic."
-33,2024-10-24,1,Took forever to get a response from support. Frustrating experience. (Test 33)
-34,2024-03-10,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 34)"
-35,2024-03-21,5,Love it! Would recommend to friends and family. (Test 35)
-36,2024-04-04,1,Customer service was unhelpful and rude. Won't buy again. (Test 36)
-37,2024-07-29,2,Customer service was unhelpful and rude. Won't buy again. (Test 37)
-38,2024-05-20,3,Took forever to get a response from support. Frustrating experience. (Test 38)
-39,2024-11-11,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 39) Plus, the color options are fantastic."
-40,2024-04-28,1,Billing error not resolved quickly. Poor service overall. (Test 40)
-41,2024-03-09,2,
-42,2024-07-17,5,"Outstanding value. Five stars all the way. (Test 42) Plus, the color options are fantastic."
-43,2024-01-17,5,"Best purchase this year. Fast and easy. (Test 43) Plus, the color options are fantastic."
-44,2024-04-23,5,Love it! Would recommend to friends and family. (Test 44)
-45,2024-11-11,2,
-46,2024-05-06,5,Outstanding value. Five stars all the way. (Test 46)
-47,2024-07-13,5,Best purchase this year. Fast and easy. (Test 47)
-48,2024-10-01,3,Took forever to get a response from support. Frustrating experience. (Test 48)
-49,2024-01-22,5,"Great quality materials. No complaints here, worth every penny. (Test 49)"
-50,2024-10-12,1,Late delivery again. This is the second time with your company. (Test 50)
-51,2024-04-07,5,Outstanding value. Five stars all the way. (Test 51)
-52,2024-08-24,2,Took forever to get a response from support. Frustrating experience. (Test 52)
-53,2024-09-21,3,Package arrived damaged due to poor shipping. Had to return it. (Test 53)
-54,2024-09-13,3,Package arrived damaged due to poor shipping. Had to return it. (Test 54)
-55,2024-12-22,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 55)"
-56,2024-08-20,1,Package arrived damaged due to poor shipping. Had to return it. (Test 56)
-57,2024-12-20,2,
-58,2024-08-18,3,"Late delivery again. This is the second time with your company. (Test 58) Plus, the color options are fantastic."
-59,2024-11-09,3,Customer service was unhelpful and rude. Won't buy again. (Test 59)
-60,2024-06-20,1,"Package arrived damaged due to poor shipping. Had to return it. (Test 60) Plus, the color options are fantastic."
-61,2024-01-27,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 61) Plus, the color options are fantastic."
-62,2024-08-16,5,Best purchase this year. Fast and easy. (Test 62)
-63,2024-01-02,1,Billing error not resolved quickly. Poor service overall. (Test 63)
-64,2024-01-03,3,Customer service was unhelpful and rude. Won't buy again. (Test 64)
-65,2024-08-20,5,Love it! Would recommend to friends and family. (Test 65)
-66,2024-01-04,3,
-67,2024-01-26,1,Late delivery again. This is the second time with your company. (Test 67)
-68,2024-01-19,2,
-69,2024-06-18,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 69)"
-70,2024-03-23,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 70)"
-71,2024-10-14,3,Billing error not resolved quickly. Poor service overall. (Test 71)
-72,2024-02-17,1,Package arrived damaged due to poor shipping. Had to return it. (Test 72)
-73,2024-08-06,1,Took forever to get a response from support. Frustrating experience. (Test 73)
-74,2024-05-20,5,"Amazing build quality! It feels premium and works flawlessly. (Test 74) Plus, the color options are fantastic."
-75,2024-11-09,1,Billing error not resolved quickly. Poor service overall. (Test 75)
-76,2024-09-27,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 76)"
-77,2024-12-27,5,Amazing build quality! It feels premium and works flawlessly. (Test 77)
-78,2024-10-21,3,Took forever to get a response from support. Frustrating experience. (Test 78)
-79,2024-11-19,3,Customer service was unhelpful and rude. Won't buy again. (Test 79)
-80,2024-04-29,5,Best purchase this year. Fast and easy. (Test 80)
-81,2024-08-26,1,
-82,2024-07-31,5,"Great quality materials. No complaints here, worth every penny. (Test 82)"
-83,2024-11-22,5,Love it! Would recommend to friends and family. (Test 83)
-84,2024-02-04,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 84)"
-85,2024-02-28,1,Took forever to get a response from support. Frustrating experience. (Test 85)
-86,2024-03-30,1,Took forever to get a response from support. Frustrating experience. (Test 86)
-87,2024-08-30,2,Package arrived damaged due to poor shipping. Had to return it. (Test 87)
-88,2024-08-23,5,"Great quality materials. No complaints here, worth every penny. (Test 88) Plus, the color options are fantastic."
-89,2024-01-29,3,Took forever to get a response from support. Frustrating experience. (Test 89)
-90,2024-01-10,3,Billing error not resolved quickly. Poor service overall. (Test 90)
-91,2024-02-03,2,Late delivery again. This is the second time with your company. (Test 91)
-92,2024-11-16,2,Package arrived damaged due to poor shipping. Had to return it. (Test 92)
-93,2024-06-06,1,"Late delivery again. This is the second time with your company. (Test 93) Plus, the color options are fantastic."
-94,2024-02-14,2,
-95,2024-06-03,5,Love it! Would recommend to friends and family. (Test 95)
-96,2024-04-13,1,"Late delivery again. This is the second time with your company. (Test 96) Plus, the color options are fantastic."
-97,2024-09-13,5,Amazing build quality! It feels premium and works flawlessly. (Test 97)
-98,2024-06-07,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 98)"
-99,2024-12-12,3,"Customer service was unhelpful and rude. Won't buy again. (Test 99) Plus, the color options are fantastic."
-100,2024-09-24,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 100)"
+1,2024-03-12,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 1)"
+2,2024-10-29,5,"Great quality materials. No complaints here, worth every penny. (Test 2)"
+3,2024-04-29,1,
+4,2024-10-06,5,"Great quality materials. No complaints here, worth every penny. (Test 4)"
+5,2024-01-04,5,Love it! Would recommend to friends and family. (Test 5)
+6,2024-06-21,1,Late delivery again. This is the second time with your company. (Test 6)
+7,2024-06-25,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 7)"
+8,2024-02-10,2,Customer service was unhelpful and rude. Won't buy again. (Test 8)
+9,2024-04-08,3,Billing error not resolved quickly. Poor service overall. (Test 9)
+10,2024-02-10,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 10)"
+11,2024-03-24,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 11)"
+12,2024-11-27,3,Took forever to get a response from support. Frustrating experience. (Test 12)
+13,2024-05-05,5,"Great quality materials. No complaints here, worth every penny. (Test 13)"
+14,2024-12-18,3,Package arrived damaged due to poor shipping. Had to return it. (Test 14)
+15,2024-04-27,1,Late delivery again. This is the second time with your company. (Test 15)
+16,2024-10-17,5,"Amazing build quality! It feels premium and works flawlessly. (Test 16) Plus, the color options are fantastic."
+17,2024-08-22,3,Customer service was unhelpful and rude. Won't buy again. (Test 17)
+18,2024-05-14,3,Package arrived damaged due to poor shipping. Had to return it. (Test 18)
+19,2024-03-11,5,Outstanding value. Five stars all the way. (Test 19)
+20,2024-03-19,5,Love it! Would recommend to friends and family. (Test 20)
+21,2024-11-01,2,"Late delivery again. This is the second time with your company. (Test 21) Plus, the color options are fantastic."
+22,2024-01-06,5,Outstanding value. Five stars all the way. (Test 22)
+23,2024-11-24,5,"Great quality materials. No complaints here, worth every penny. (Test 23)"
+24,2024-05-14,1,"Customer service was unhelpful and rude. Won't buy again. (Test 24) Plus, the color options are fantastic."
+25,2024-11-23,2,Late delivery again. This is the second time with your company. (Test 25)
+26,2024-01-01,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 26) Plus, the color options are fantastic."
+27,2024-06-06,2,
+28,2024-02-13,1,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 28)"
+29,2024-03-05,5,Love it! Would recommend to friends and family. (Test 29)
+30,2024-09-27,2,Late delivery again. This is the second time with your company. (Test 30)
+31,2024-12-19,5,Love it! Would recommend to friends and family. (Test 31)
+32,2024-07-10,3,Late delivery again. This is the second time with your company. (Test 32)
+33,2024-02-02,5,Outstanding value. Five stars all the way. (Test 33)
+34,2024-01-04,1,Customer service was unhelpful and rude. Won't buy again. (Test 34)
+35,2024-01-17,5,"Great quality materials. No complaints here, worth every penny. (Test 35)"
+36,2024-04-19,2,Customer service was unhelpful and rude. Won't buy again. (Test 36)
+37,2024-05-04,2,Late delivery again. This is the second time with your company. (Test 37)
+38,2024-08-08,5,"Best purchase this year. Fast and easy. (Test 38) Plus, the color options are fantastic."
+39,2024-12-10,1,Took forever to get a response from support. Frustrating experience. (Test 39)
+40,2024-02-25,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 40)"
+41,2024-04-03,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 41)"
+42,2024-10-08,2,Took forever to get a response from support. Frustrating experience. (Test 42)
+43,2024-01-08,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 43)"
+44,2024-04-19,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 44)"
+45,2024-07-18,5,"Love it! Would recommend to friends and family. (Test 45) Plus, the color options are fantastic."
+46,2024-10-11,3,Took forever to get a response from support. Frustrating experience. (Test 46)
+47,2024-01-30,5,Love it! Would recommend to friends and family. (Test 47)
+48,2024-09-01,5,"Great quality materials. No complaints here, worth every penny. (Test 48) Plus, the color options are fantastic."
+49,2024-02-05,1,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 49) Plus, the color options are fantastic."
+50,2024-10-18,5,"Great quality materials. No complaints here, worth every penny. (Test 50)"
+51,2024-12-02,2,Late delivery again. This is the second time with your company. (Test 51)
+52,2024-05-15,1,Took forever to get a response from support. Frustrating experience. (Test 52)
+53,2024-06-10,5,Love it! Would recommend to friends and family. (Test 53)
+54,2024-02-21,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 54)"
+55,2024-06-27,5,"Great quality materials. No complaints here, worth every penny. (Test 55)"
+56,2024-10-05,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 56) Plus, the color options are fantastic."
+57,2024-01-05,3,Billing error not resolved quickly. Poor service overall. (Test 57)
+58,2024-02-29,2,Billing error not resolved quickly. Poor service overall. (Test 58)
+59,2024-11-05,5,"Great quality materials. No complaints here, worth every penny. (Test 59)"
+60,2024-09-15,2,Late delivery again. This is the second time with your company. (Test 60)
+61,2024-02-17,5,Best purchase this year. Fast and easy. (Test 61)
+62,2024-03-07,2,
+63,2024-10-14,2,Customer service was unhelpful and rude. Won't buy again. (Test 63)
+64,2024-03-17,3,
+65,2024-03-06,5,"Amazing build quality! It feels premium and works flawlessly. (Test 65) Plus, the color options are fantastic."
+66,2024-01-21,5,Amazing build quality! It feels premium and works flawlessly. (Test 66)
+67,2024-10-13,2,Customer service was unhelpful and rude. Won't buy again. (Test 67)
+68,2024-05-01,5,Outstanding value. Five stars all the way. (Test 68)
+69,2024-06-19,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 69) Plus, the color options are fantastic."
+70,2024-05-16,5,Outstanding value. Five stars all the way. (Test 70)
+71,2024-04-23,2,Late delivery again. This is the second time with your company. (Test 71)
+72,2024-04-24,1,Package arrived damaged due to poor shipping. Had to return it. (Test 72)
+73,2024-02-05,5,"Great quality materials. No complaints here, worth every penny. (Test 73)"
+74,2024-06-18,3,Took forever to get a response from support. Frustrating experience. (Test 74)
+75,2024-10-24,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 75)"
+76,2024-06-09,3,Customer service was unhelpful and rude. Won't buy again. (Test 76)
+77,2024-10-22,5,"Outstanding value. Five stars all the way. (Test 77) Plus, the color options are fantastic."
+78,2024-01-01,2,
+79,2024-11-15,2,Package arrived damaged due to poor shipping. Had to return it. (Test 79)
+80,2024-09-16,2,Billing error not resolved quickly. Poor service overall. (Test 80)
+81,2024-10-10,2,Billing error not resolved quickly. Poor service overall. (Test 81)
+82,2024-03-30,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 82)"
+83,2024-04-17,2,"Took forever to get a response from support. Frustrating experience. (Test 83) Plus, the color options are fantastic."
+84,2024-08-14,5,Outstanding value. Five stars all the way. (Test 84)
+85,2024-03-27,5,Outstanding value. Five stars all the way. (Test 85)
+86,2024-06-20,5,Amazing build quality! It feels premium and works flawlessly. (Test 86)
+87,2024-04-11,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 87)"
+88,2024-11-08,2,
+89,2024-04-09,5,Amazing build quality! It feels premium and works flawlessly. (Test 89)
+90,2024-12-18,5,"Best purchase this year. Fast and easy. (Test 90) Plus, the color options are fantastic."
+91,2024-12-22,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 91)"
+92,2024-03-03,5,Love it! Would recommend to friends and family. (Test 92)
+93,2024-10-13,5,Love it! Would recommend to friends and family. (Test 93)
+94,2024-08-06,3,Took forever to get a response from support. Frustrating experience. (Test 94)
+95,2024-05-12,5,Love it! Would recommend to friends and family. (Test 95)
+96,2024-11-16,2,Late delivery again. This is the second time with your company. (Test 96)
+97,2024-05-19,1,Package arrived damaged due to poor shipping. Had to return it. (Test 97)
+98,2024-04-28,1,"Took forever to get a response from support. Frustrating experience. (Test 98) Plus, the color options are fantastic."
+99,2024-07-31,5,Outstanding value. Five stars all the way. (Test 99)
+100,2024-04-15,5,Best purchase this year. Fast and easy. (Test 100)
+101,2024-12-22,5,Best purchase this year. Fast and easy. (Test 101)
+102,2024-06-29,5,"Great quality materials. No complaints here, worth every penny. (Test 102) Plus, the color options are fantastic."
+103,2024-10-02,2,Took forever to get a response from support. Frustrating experience. (Test 103)
+104,2024-07-18,1,Package arrived damaged due to poor shipping. Had to return it. (Test 104)
+105,2024-08-27,1,Billing error not resolved quickly. Poor service overall. (Test 105)
+106,2024-10-15,3,Late delivery again. This is the second time with your company. (Test 106)
+107,2024-08-24,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 107) Plus, the color options are fantastic."
+108,2024-06-16,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 108)"
+109,2024-05-09,2,Took forever to get a response from support. Frustrating experience. (Test 109)
+110,2024-01-27,3,
+111,2024-01-21,3,Customer service was unhelpful and rude. Won't buy again. (Test 111)
+112,2024-03-19,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 112) Plus, the color options are fantastic."
+113,2024-08-26,1,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 113) Plus, the color options are fantastic."
+114,2024-02-28,3,Took forever to get a response from support. Frustrating experience. (Test 114)
+115,2024-10-21,2,"Package arrived damaged due to poor shipping. Had to return it. (Test 115) Plus, the color options are fantastic."
+116,2024-10-30,5,"Best purchase this year. Fast and easy. (Test 116) Plus, the color options are fantastic."
+117,2024-11-03,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 117)"
+118,2024-08-07,5,"Great quality materials. No complaints here, worth every penny. (Test 118)"
+119,2024-09-07,2,Customer service was unhelpful and rude. Won't buy again. (Test 119)
+120,2024-08-23,5,Amazing build quality! It feels premium and works flawlessly. (Test 120)
+121,2024-05-18,3,Package arrived damaged due to poor shipping. Had to return it. (Test 121)
+122,2024-05-17,5,Best purchase this year. Fast and easy. (Test 122)
+123,2024-05-04,2,"Customer service was unhelpful and rude. Won't buy again. (Test 123) Plus, the color options are fantastic."
+124,2024-01-15,5,Outstanding value. Five stars all the way. (Test 124)
+125,2024-05-12,5,Best purchase this year. Fast and easy. (Test 125)
+126,2024-10-11,2,Took forever to get a response from support. Frustrating experience. (Test 126)
+127,2024-07-27,5,"Great quality materials. No complaints here, worth every penny. (Test 127) Plus, the color options are fantastic."
+128,2024-11-26,5,Outstanding value. Five stars all the way. (Test 128)
+129,2024-04-23,5,"Best purchase this year. Fast and easy. (Test 129) Plus, the color options are fantastic."
+130,2024-07-07,5,Outstanding value. Five stars all the way. (Test 130)
+131,2024-10-08,5,Outstanding value. Five stars all the way. (Test 131)
+132,2024-04-28,2,Took forever to get a response from support. Frustrating experience. (Test 132)
+133,2024-10-01,5,"Great quality materials. No complaints here, worth every penny. (Test 133) Plus, the color options are fantastic."
+134,2024-10-28,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 134)"
+135,2024-04-01,2,Customer service was unhelpful and rude. Won't buy again. (Test 135)
+136,2024-01-28,1,"Customer service was unhelpful and rude. Won't buy again. (Test 136) Plus, the color options are fantastic."
+137,2024-02-22,2,Billing error not resolved quickly. Poor service overall. (Test 137)
+138,2024-06-23,5,"Great quality materials. No complaints here, worth every penny. (Test 138)"
+139,2024-02-03,1,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 139)"
+140,2024-12-17,3,
+141,2024-06-04,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 141)"
+142,2024-11-06,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 142)"
+143,2024-10-28,2,Late delivery again. This is the second time with your company. (Test 143)
+144,2024-02-20,5,"Best purchase this year. Fast and easy. (Test 144) Plus, the color options are fantastic."
+145,2024-05-02,1,Late delivery again. This is the second time with your company. (Test 145)
+146,2024-07-28,1,
+147,2024-04-28,5,Outstanding value. Five stars all the way. (Test 147)
+148,2024-12-17,1,Billing error not resolved quickly. Poor service overall. (Test 148)
+149,2024-04-11,3,Package arrived damaged due to poor shipping. Had to return it. (Test 149)
+150,2024-05-16,5,Love it! Would recommend to friends and family. (Test 150)
+151,2024-10-31,2,
+152,2024-07-25,3,Took forever to get a response from support. Frustrating experience. (Test 152)
+153,2024-01-21,3,Billing error not resolved quickly. Poor service overall. (Test 153)
+154,2024-02-16,5,Outstanding value. Five stars all the way. (Test 154)
+155,2024-12-10,1,Late delivery again. This is the second time with your company. (Test 155)
+156,2024-08-28,1,
+157,2024-11-21,5,Best purchase this year. Fast and easy. (Test 157)
+158,2024-06-13,5,Love it! Would recommend to friends and family. (Test 158)
+159,2024-05-27,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 159)"
+160,2024-06-10,1,
+161,2024-01-01,3,Took forever to get a response from support. Frustrating experience. (Test 161)
+162,2024-07-04,3,
+163,2024-05-16,5,"Outstanding value. Five stars all the way. (Test 163) Plus, the color options are fantastic."
+164,2024-01-15,1,Package arrived damaged due to poor shipping. Had to return it. (Test 164)
+165,2024-07-27,3,Late delivery again. This is the second time with your company. (Test 165)
+166,2024-08-24,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 166)"
+167,2024-05-29,5,"Great quality materials. No complaints here, worth every penny. (Test 167)"
+168,2024-08-21,1,Took forever to get a response from support. Frustrating experience. (Test 168)
+169,2024-03-10,3,Package arrived damaged due to poor shipping. Had to return it. (Test 169)
+170,2024-06-23,5,Amazing build quality! It feels premium and works flawlessly. (Test 170)
+171,2024-10-23,3,Customer service was unhelpful and rude. Won't buy again. (Test 171)
+172,2024-06-19,5,Love it! Would recommend to friends and family. (Test 172)
+173,2024-12-23,5,Best purchase this year. Fast and easy. (Test 173)
+174,2024-01-23,2,Late delivery again. This is the second time with your company. (Test 174)
+175,2024-07-16,2,Billing error not resolved quickly. Poor service overall. (Test 175)
+176,2024-06-18,3,"Package arrived damaged due to poor shipping. Had to return it. (Test 176) Plus, the color options are fantastic."
+177,2024-01-08,2,
+178,2024-08-28,1,Package arrived damaged due to poor shipping. Had to return it. (Test 178)
+179,2024-06-17,1,Took forever to get a response from support. Frustrating experience. (Test 179)
+180,2024-09-06,5,Best purchase this year. Fast and easy. (Test 180)
+181,2024-12-16,3,
+182,2024-11-20,1,Customer service was unhelpful and rude. Won't buy again. (Test 182)
+183,2024-01-15,5,Amazing build quality! It feels premium and works flawlessly. (Test 183)
+184,2024-07-10,5,Amazing build quality! It feels premium and works flawlessly. (Test 184)
+185,2024-12-15,5,Love it! Would recommend to friends and family. (Test 185)
+186,2024-11-13,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 186)"
+187,2024-11-22,2,"Package arrived damaged due to poor shipping. Had to return it. (Test 187) Plus, the color options are fantastic."
+188,2024-05-27,2,"Took forever to get a response from support. Frustrating experience. (Test 188) Plus, the color options are fantastic."
+189,2024-06-02,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 189)"
+190,2024-04-11,5,Outstanding value. Five stars all the way. (Test 190)
+191,2024-07-02,5,Best purchase this year. Fast and easy. (Test 191)
+192,2024-07-21,3,Billing error not resolved quickly. Poor service overall. (Test 192)
+193,2024-01-26,3,Customer service was unhelpful and rude. Won't buy again. (Test 193)
+194,2024-06-29,5,Best purchase this year. Fast and easy. (Test 194)
+195,2024-12-03,3,Late delivery again. This is the second time with your company. (Test 195)
+196,2024-11-26,3,
+197,2024-07-05,5,"Amazing build quality! It feels premium and works flawlessly. (Test 197) Plus, the color options are fantastic."
+198,2024-03-30,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 198)"
+199,2024-09-28,2,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 199)"
+200,2024-05-31,2,Customer service was unhelpful and rude. Won't buy again. (Test 200)
+201,2024-12-12,1,"Customer service was unhelpful and rude. Won't buy again. (Test 201) Plus, the color options are fantastic."
+202,2024-01-08,5,Outstanding value. Five stars all the way. (Test 202)
+203,2024-12-10,3,Billing error not resolved quickly. Poor service overall. (Test 203)
+204,2024-02-25,2,Billing error not resolved quickly. Poor service overall. (Test 204)
+205,2024-06-16,3,
+206,2024-12-24,2,
+207,2024-06-04,1,"Billing error not resolved quickly. Poor service overall. (Test 207) Plus, the color options are fantastic."
+208,2024-03-10,3,
+209,2024-12-22,5,Best purchase this year. Fast and easy. (Test 209)
+210,2024-07-31,5,"Outstanding value. Five stars all the way. (Test 210) Plus, the color options are fantastic."
+211,2024-05-23,5,Amazing build quality! It feels premium and works flawlessly. (Test 211)
+212,2024-04-30,5,"Great quality materials. No complaints here, worth every penny. (Test 212)"
+213,2024-07-02,3,Customer service was unhelpful and rude. Won't buy again. (Test 213)
+214,2024-08-20,5,Amazing build quality! It feels premium and works flawlessly. (Test 214)
+215,2024-01-11,5,"Great quality materials. No complaints here, worth every penny. (Test 215)"
+216,2024-10-16,5,"Amazing build quality! It feels premium and works flawlessly. (Test 216) Plus, the color options are fantastic."
+217,2024-04-20,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 217)"
+218,2024-01-02,3,Package arrived damaged due to poor shipping. Had to return it. (Test 218)
+219,2024-02-26,1,Customer service was unhelpful and rude. Won't buy again. (Test 219)
+220,2024-10-28,1,
+221,2024-08-03,3,"Customer service was unhelpful and rude. Won't buy again. (Test 221) Plus, the color options are fantastic."
+222,2024-07-04,2,
+223,2024-01-23,5,Amazing build quality! It feels premium and works flawlessly. (Test 223)
+224,2024-07-24,2,"Took forever to get a response from support. Frustrating experience. (Test 224) Plus, the color options are fantastic."
+225,2024-08-15,5,Outstanding value. Five stars all the way. (Test 225)
+226,2024-03-05,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 226) Plus, the color options are fantastic."
+227,2024-07-14,2,Billing error not resolved quickly. Poor service overall. (Test 227)
+228,2024-02-28,3,Took forever to get a response from support. Frustrating experience. (Test 228)
+229,2024-08-20,2,Package arrived damaged due to poor shipping. Had to return it. (Test 229)
+230,2024-06-09,5,Best purchase this year. Fast and easy. (Test 230)
+231,2024-02-04,2,Took forever to get a response from support. Frustrating experience. (Test 231)
+232,2024-07-09,1,
+233,2024-10-14,3,
+234,2024-08-04,3,Billing error not resolved quickly. Poor service overall. (Test 234)
+235,2024-10-22,5,Amazing build quality! It feels premium and works flawlessly. (Test 235)
+236,2024-06-28,1,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 236)"
+237,2024-10-14,2,Customer service was unhelpful and rude. Won't buy again. (Test 237)
+238,2024-05-16,5,"Great quality materials. No complaints here, worth every penny. (Test 238)"
+239,2024-06-22,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 239)"
+240,2024-07-24,3,"Customer service was unhelpful and rude. Won't buy again. (Test 240) Plus, the color options are fantastic."
+241,2024-02-16,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 241)"
+242,2024-06-08,2,Package arrived damaged due to poor shipping. Had to return it. (Test 242)
+243,2024-03-21,1,Billing error not resolved quickly. Poor service overall. (Test 243)
+244,2024-12-04,2,
+245,2024-04-20,5,Best purchase this year. Fast and easy. (Test 245)
+246,2024-12-13,5,Amazing build quality! It feels premium and works flawlessly. (Test 246)
+247,2024-07-21,5,"Outstanding value. Five stars all the way. (Test 247) Plus, the color options are fantastic."
+248,2024-03-11,5,"The product quality is excellent, far better than expected. Highly recommend for daily use. (Test 248)"
+249,2024-08-08,3,"Took forever to get a response from support. Frustrating experience. (Test 249) Plus, the color options are fantastic."
+250,2024-10-13,3,"Delivery was late by a week, very disappointing. Product is fine but service needs improvement. (Test 250)"
