@@ -1,0 +1,576 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 12459
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 16 Tf
+18.3999999999999986 TL
+0 g
+56.6929133858267775 785.1970866141732586 Td
+(Product Requirements Document \(PRD\): FlowState) Tj
+T* (1. Document Control) Tj
+T* () Tj
+T* (Product / Feature Name: FlowState \(The Vibe-Coded Productivity App\)) Tj
+T* (Version: 1.0 \(MVP\)) Tj
+T* (Author: Product Team) Tj
+T* (Date: October 26, 2023) Tj
+T* (Approvers: [Head of Product], [Engineering Lead], [Design Lead]) Tj
+T* () Tj
+T* (2. Executive Summary) Tj
+T* (FlowState is an AI-first weekly productivity app designed to reduce) Tj
+T* (executive dysfunction and alignment anxiety. Unlike traditional tools that) Tj
+T* (act as rigid databases, FlowState functions as a fluid, adaptive partner.) Tj
+T* (By leveraging Gemini 3.0, the app automates data entry via multimodal) Tj
+T* (capture, dynamically adjusts schedules based on "liquid time" and user) Tj
+T* (energy levels, and provides empathetic support through "body) Tj
+T* (doubling." We are building this to help users shift from managing) Tj
+T* (software to maintaining flow.) Tj
+T* (3. Context &#x26; Background) Tj
+T* () Tj
+T* (Current state: Users currently juggle multiple apps \(Notes, Calendar,) Tj
+T* (To-Do, Read-Later\) that do not communicate. Schedules are rigid; one) Tj
+T* (missed task breaks the day, leading to users abandoning the system.) Tj
+T* (Customer insights: Gen Z and Millennial users are experiencing) Tj
+T* ("productivity dysmorphia"—the feeling of being busy but not productive.) Tj
+T* (There is a high demand for "ADHD-friendly" tools that lower the barrier) Tj
+T* (to entry \(friction\) and manage the emotional aspect of work.) Tj
+T* (Competitive/market context:) Tj
+T* () Tj
+T* (Notion: Too manual; requires heavy setup \("Legos"\).) Tj
+T* (Google Calendar: Rigid time blocks; lacks task context.) Tj
+T* (Motion: High cost; feels corporate/aggressive rather than supportive.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Constraints: Heavy reliance on Gemini 3.0 API latency and cost; privacy) Tj
+T* (concerns regarding reading personal content \(emails/screenshots\).) Tj
+T* () Tj
+T* (4. Problem Statement \(Outcome-Driven\)) Tj
+T* (Users struggle to maintain consistency with rigid productivity tools,) Tj
+T* (which causes "shame spirals" when tasks are missed and administrative) Tj
+T* (burnout. A successful solution should enable users to capture inputs) Tj
+T* (effortlessly and have their schedule adapt to their reality automatically.) Tj
+T* (5. User Research &#x26; Insights) Tj
+T* (5.1 Personas / JTBD) Tj
+T* () Tj
+T* (The Overwhelmed Creative: When I have a random idea or receive a) Tj
+T* (wedding invite, I want to "dump" it somewhere instantly, so I can stop) Tj
+T* (worrying about forgetting it without opening a form.) Tj
+T* (The Cycle-Breaker: When I miss a deadline or a planned block, I want) Tj
+T* (the schedule to fix itself, so I don't feel the urge to give up on the whole) Tj
+T* (week.) Tj
+T* () Tj
+T* (5.2 Pain Points) Tj
+T* () Tj
+T* (The "Wall of Awful": Large tasks feel insurmountable, leading to) Tj
+T* (procrastination.) Tj
+T* (Data Entry Friction: Typing out task details \(Title, Date, Time, Priority\) is) Tj
+T* (too much effort in the moment.) Tj
+T* (Rigid Scheduling: Life happens, but calendars treat missed slots as) Tj
+T* (failures rather than data points.) Tj
+T* (Context Switching: Moving from learning \(reading/watching\) to doing) Tj
+T* (requires too many steps.) Tj
+T* () Tj
+T* (6. Goals &#x26; Success Metrics) Tj
+T* () Tj
+T* (Business goals: Achieve top-tier retention rates \(D30 > 40%\) by creating) Tj
+T* (an emotional reliance on the app's "empathy.") Tj
+T* (User goals: Reduce "rescheduling time" to near zero; increase task) Tj
+T* (completion rates via energy alignment.) Tj
+T* (KPIs:) Tj
+T* () Tj
+T* (Capture Rate: % of items added via multimodal input vs. text.) Tj
+T* (Flow Score: Ratio of completed vs. rescheduled tasks.) Tj
+T* (Sanctuary Completion: % of WAU who complete the "Sunday) Tj
+T* (Sanctuary" ritual.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (7. Scope) Tj
+T* (7.1 In Scope) Tj
+T* () Tj
+T* (Core Intelligence: Gemini 3.0 integration for reasoning and multimodal) Tj
+T* (processing.) Tj
+T* (Capture: "Brain Dump" Stream \(Voice, Image, Text\).) Tj
+T* (Planning: "Liquid Time" Scheduling &#x26; Bio-Rhythm Tagging.) Tj
+T* (Execution: Ghost-Writer Sub-tasking, Read to Action, Body Doubling) Tj
+T* (Chat.) Tj
+T* (Review: Sunday Sanctuary.) Tj
+T* (UI/UX: Vibe-Shifting UI, Contextual Nudges.) Tj
+T* () Tj
+T* (7.2 Out of Scope) Tj
+T* () Tj
+T* (Team collaboration features \(Multi-player mode\).) Tj
+T* (Desktop Native App \(Web &#x26; Mobile only for MVP\).) Tj
+T* (Third-party integrations beyond Calendar/Email \(e.g., Jira/Salesforce) Tj
+T* (deep integration\).) Tj
+T* () Tj
+T* (8. Proposed Solution) Tj
+T* () Tj
+T* (High-level concept: A "living" calendar and task manager that acts like a) Tj
+T* (highly competent, empathetic executive assistant.) Tj
+T* (User Flows:) Tj
+T* () Tj
+T* (Capture: User snaps photo of invite -> AI parses to calendar -> Archive.) Tj
+T* (Plan: User opens app -> AI suggests schedule based on biological) Tj
+T* (energy -> User accepts.) Tj
+T* (Fail &#x26; Fix: User misses task -> AI auto-shifts remaining day ->) Tj
+T* (User is notified of the new plan.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (System Flows: Input -> Gemini Multimodal Processor -> Structured Data) Tj
+T* (Object -> Vector Database \(User Context\) -> Scheduler Engine -> UI) Tj
+T* (Render.) Tj
+T* () Tj
+T* (9. User Stories) Tj
+T* (Story 1: The Brain Dump) Tj
+T* (As a busy professional,) Tj
+T* (I want to upload a screenshot of an email or voice note a rambling) Tj
+T* (thought,) Tj
+T* (So that the app extracts the task and due date without me typing.) Tj
+T* () Tj
+T* (Acceptance Criteria:) Tj
+T* () Tj
+T* (Given a photo of a wedding invite, Then the app creates a calendar) Tj
+T* (event and a "Buy Gift" task 2 weeks prior.) Tj
+T* (Given a voice note saying "Remind me to call Mom," Then the app) Tj
+T* (schedules a call task.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Story 2: Liquid Time) Tj
+T* (As a user with a volatile schedule,) Tj
+T* (I want to have my afternoon automatically rearranged if I miss my) Tj
+T* (morning tasks,) Tj
+T* (So that I don't have to manually drag-and-drop 5 different calendar) Tj
+T* (blocks.) Tj
+T* () Tj
+T* (Acceptance Criteria:) Tj
+T* () Tj
+T* (When a task is marked "skipped" or time runs out, Then Gemini) Tj
+T* (recalculates availability and moves the task to the next optimal slot) Tj
+T* (based on priority.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Story 3: Ghost-Writer) Tj
+T* (As a user with ADHD facing a large project,) Tj
+T* (I want to break a vague task like "Plan Marketing Strategy" into small) Tj
+T* (steps instantly,) Tj
+T* (So that I can overcome the activation energy required to start.) Tj
+T* () Tj
+T* (Acceptance Criteria:) Tj
+T* () Tj
+T* (When user long-presses a task and selects "Break Down," Then Gemini) Tj
+T* (generates 5-6 sub-tasks \(e.g., "Research competitors," "Draft outline"\).) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Story 4: Body Doubling) Tj
+T* (As a remote worker,) Tj
+T* (I want to chat with an AI companion while I work,) Tj
+T* (So that I stay accountable and don't get distracted.) Tj
+T* () Tj
+T* (Acceptance Criteria:) Tj
+T* () Tj
+T* (Given "Body Double" mode is active, Then the AI sends a check-in) Tj
+T* (message every 15 minutes asking for status updates.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (10. Detailed Requirements) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Feature) Tj
+T* (Requirement Description) Tj
+T* (Gemini 3.0 Logic) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Brain Dump Stream) Tj
+T* (Single FAB \(Floating Action Button\) accepting text, voice, camera, and) Tj
+T* (file uploads.) Tj
+T* (Analyzes input, extracts entities \(dates, intent, context\), and) Tj
+T* (auto-categorizes.) Tj
+T* () Tj
+T* () Tj
+T* (Liquid Time) Tj
+T* (Dynamic calendar engine that treats time blocks as fluid dependencies.) Tj
+T* (Understands dependencies. If Task A is missed, Task B \(dependent\) is) Tj
+T* (moved. Optimizes for "catch up" without overcrowding.) Tj
+T* () Tj
+T* () Tj
+T* (Bio-Rhythm Tagging) Tj
+T* (Tasks tagged with energy requirements \(High Focus, Low Energy,) Tj
+T* (Creative\).) Tj
+T* (Learns user habits \(e.g., creative slump at 3 PM\) and suggests moving) Tj
+T* (high-focus tasks to peak energy windows.) Tj
+T* () Tj
+T* () Tj
+T* (Sunday Sanctuary) Tj
+T* (Conversational UI workflow for weekly review.) Tj
+T* (Summarizes previous week's achievements. Proactively pre-fills next) Tj
+T* (week based on "unfinished business.") Tj
+T* () Tj
+T* () Tj
+T* (Read to Action) Tj
+T* (System Share Sheet extension for URLs/Files.) Tj
+T* (Consumes content \(video/pdf\), summarizes it, and extracts specific) Tj
+T* ("Action Items" to the task list.) Tj
+T* () Tj
+T* () Tj
+T* (Vibe-Shifting UI) Tj
+T* (Reactive UI styling engine.) Tj
+T* (Infers user mode from calendar. "Deep Work" = Minimalist/Dark.) Tj
+T* ("Planning" = Pastel/Broad View.) Tj
+T* () Tj
+T* () Tj
+T* (Contextual Nudges) Tj
+T* (Notification engine that queries user state before sending.) Tj
+T* (Checks calendar/activity. If in "Flow," suppresses notification. If "Free,") Tj
+T* (sends nudge.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (11. Prioritization \(MoSCoW\)) Tj
+T* () Tj
+T* (Must Have:) Tj
+T* () Tj
+T* (Brain Dump Stream \(Multimodal Capture\)) Tj
+T* (Liquid Time Scheduling) Tj
+T* (Ghost-Writer Sub-Tasking) Tj
+T* (Bio-Rhythm &#x26; Energy Tagging) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Should Have:) Tj
+T* () Tj
+T* (Sunday Sanctuary Ritual) Tj
+T* (Read to Action \(Content Extraction\)) Tj
+T* (Contextual Nudges) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Could Have:) Tj
+T* () Tj
+T* (Vibe-Shifting UI \(Can start with manual toggle\)) Tj
+T* (Body Doubling Chat Mode) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Won’t Have \(MVP\):) Tj
+T* () Tj
+T* (Multi-user shared calendars) Tj
+T* (Desktop native application) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (12. Technical Considerations) Tj
+T* () Tj
+T* (Architecture: React Native \(Mobile\) + Node.js/Python Backend.) Tj
+T* (Dependencies: Google Gemini 3.0 API \(Multimodal capability is critical\).) Tj
+T* (Data Store: PostgreSQL for structured data + Vector DB) Tj
+T* (\(Pinecone/Weaviate\) for storing user context and content embeddings.) Tj
+T* (Security &#x26; Compliance:) Tj
+T* () Tj
+T* (Inputs \(screenshots/voice\) must be processed transiently or encrypted) Tj
+T* (at rest.) Tj
+T* (OAuth2 integration for Calendar access.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Scalability: Heavy reliance on LLM tokens; need robust rate-limiting and) Tj
+T* (caching strategies for the "Liquid Time" recalculations.) Tj
+T* () Tj
+T* (13. Risks, Assumptions, Dependencies) Tj
+T* () Tj
+T* (Risk: Hallucinations. Gemini might schedule a task for the wrong date or) Tj
+T* (misinterpret a voice note.) Tj
+T* () Tj
+T* (Mitigation: Always show a "Confirm" snackbar before finalizing auto-filed) Tj
+T* (tasks.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Risk: Token Cost. Continuous "Body Doubling" and "Liquid Time") Tj
+T* (recalculations are token-heavy.) Tj
+T* () Tj
+T* (Mitigation: Tiered subscription model to cover API costs.) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Assumption: Users are willing to trust an AI to modify their calendar) Tj
+T* (without manual approval for every move.) Tj
+T* () Tj
+T* (14. Analytics &#x26; Telemetry) Tj
+T* () Tj
+T* (Events to track:) Tj
+T* () Tj
+T* (input_captured \(type: voice/image/text\)) Tj
+T* (task_auto_rescheduled \(count\)) Tj
+T* (suggestion_accepted vs suggestion_rejected \(for Bio-Rhythm\)) Tj
+T* (ghost_writer_triggered) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (Funnels: Onboarding -> First Brain Dump -> First Schedule Generated.) Tj
+T* (Dashboards: "Vibe Check" dashboard showing user energy patterns vs.) Tj
+T* (task completion.) Tj
+T* () Tj
+T* (15. Go-To-Market Plan) Tj
+T* () Tj
+T* (Launch strategy: Invite-only Beta for "ProductivityTok" influencers) Tj
+T* (\(TikTok/Reels marketing\).) Tj
+T* (Positioning: "The first productivity app that feels like a friend, not a) Tj
+T* (boss.") Tj
+T* (Training: "Sunday Sanctuary" acts as a weekly re-onboarding/training) Tj
+T* (loop.) Tj
+T* (Rollout: iOS first, followed by Web, then Android.) Tj
+T* () Tj
+T* (16. Appendix) Tj
+T* () Tj
+T* (Mockups: [Link to Figma - Vibe UI Concepts]) Tj
+T* (Competitive Analysis: [Link to Notion/Motion Comparison Matrix]) Tj
+T* (Research Artifacts: [User Interview Transcripts - "The Anxiety of To-Do) Tj
+T* (Lists"]) Tj
+T* () Tj
+T* () Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 3.0.1)
+/CreationDate (D:20251208152512-06'00')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000012664 00000 n 
+0000014481 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000012721 00000 n 
+0000012846 00000 n 
+0000012976 00000 n 
+0000013109 00000 n 
+0000013246 00000 n 
+0000013369 00000 n 
+0000013498 00000 n 
+0000013630 00000 n 
+0000013766 00000 n 
+0000013894 00000 n 
+0000014021 00000 n 
+0000014150 00000 n 
+0000014283 00000 n 
+0000014385 00000 n 
+0000014729 00000 n 
+0000014815 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <794B961D7278AED7A18CFD5813063508> <794B961D7278AED7A18CFD5813063508> ]
+>>
+startxref
+14919
+%%EOF
