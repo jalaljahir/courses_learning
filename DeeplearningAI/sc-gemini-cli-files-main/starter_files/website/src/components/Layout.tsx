@@ -162,7 +162,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <BrainCircuit className="h-6 w-6 text-slate-400" />
               <span className="text-slate-500 font-semibold">TechStack Conference</span>
             </div>
-            <p className="text-slate-400 text-sm">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <Link to="/about" className="text-slate-400 hover:text-slate-500 text-sm">About</Link>
+              <Link to="/socials" className="text-slate-400 hover:text-slate-500 text-sm">Social Kit</Link>
+            </div>
+            <p className="text-slate-400 text-sm mt-4 md:mt-0">
               © 2026 Fictitious AI Conference. All rights reserved.
             </p>
           </div>
