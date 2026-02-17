@@ -1,0 +1,32 @@
+   ▲ Next.js 15.5.12 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.241:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Compiled middleware in 91ms
+ ✓ Ready in 708ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6.3s
+You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+ GET / 200 in 6862ms
+You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+ GET /? 200 in 62ms
+ ✓ Compiled /api/chat in 393ms
+Error [AI_UnsupportedModelVersionError]: Unsupported model version v1 for provider "anthropic.messages" and model "claude-haiku-4-5". AI SDK 5 only supports models that implement specification version "v2".
+    at POST (src/app/api/chat/route.ts:34:28)
+  32 |   // Use fewer steps for mock provider to prevent repetition
+  33 |   const isMockProvider = !process.env.ANTHROPIC_API_KEY;
+> 34 |   const result = streamText({
+     |                            ^
+  35 |     model,
+  36 |     messages,
+  37 |     maxTokens: 10_000, {
+  cause: undefined,
+  version: 'v1',
+  provider: 'anthropic.messages',
+  modelId: 'claude-haiku-4-5'
+}
+ POST /api/chat 500 in 815ms
+You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+ GET / 200 in 77ms

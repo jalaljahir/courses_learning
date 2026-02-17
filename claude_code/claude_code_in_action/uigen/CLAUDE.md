@@ -6,10 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 UIGen is an AI-powered React component generator with live preview. It uses Claude AI to generate React components, which are stored in a virtual file system and previewed in real-time using Babel transformation and import maps.
 
+Users can sign up/sign in or continue as anonymous users. Anonymous projects are temporary; authenticated user projects are persisted to the database.
+
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 18+ (Node.js 25+ requires node-compat.cjs workaround)
 - npm
+
+## Tech Stack
+
+- **Next.js 15** with App Router and Turbopack
+- **React 19** (latest version)
+- **TypeScript**
+- **Tailwind CSS v4** (latest version)
+- **Prisma** with SQLite
+- **Monaco Editor** for code editing
+- **Anthropic Claude AI** (Sonnet 4)
+- **Vercel AI SDK** for streaming
 
 ## Environment Setup
 
@@ -163,9 +176,9 @@ src/
 ├── components/
 │   ├── auth/         # Auth dialogs and forms
 │   ├── chat/         # Chat interface, message list, input
-│   ├── editor/       # Code editor (Monaco), file tree
-│   ├── preview/      # Preview iframe
-│   └── ui/           # Radix UI components
+│   ├── editor/       # Code editor (Monaco Editor with syntax highlighting), file tree
+│   ├── preview/      # Preview iframe with sandbox
+│   └── ui/           # Radix UI components (shadcn/ui style)
 ├── lib/
 │   ├── contexts/     # React contexts (file-system, chat)
 │   ├── tools/        # AI tools (str-replace, file-manager)
