@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎈 Birthday Card Maker — Inside-Card Preview</title>
+  <style>
+    /* ----- Page palette & layout ----- */
+    :root{
+      --bg:#fffaf6;
+      --panel:#fff;
+      --accent:#d63384;
+      --accent2:#06d6a0;
+      --muted:#5b5b6a;
+      --card-paper:#fff7e6;
+      --card-shadow: rgba(22, 28, 45, 0.08);
+    }
+    html,body{height:100%; margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#fffefc,var(--bg)); color:#111;}
+
+    /* ----- Top fun title ----- */
+    .page-title {
+      text-align:center;
+      padding:22px 12px 6px;
+    }
+    .page-title h1{
+      margin:0;
+      font-size:1.8rem;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+    }
+    .page-title p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* ----- Main two-column layout ----- */
+    .main {
+      max-width:1100px;
+      margin:18px auto;
+      padding:18px;
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+
+    /* Left: Form */
+    .panel {
+      flex:1;
+      background:var(--panel);
+      border-radius:12px;
+      padding:18px;
+      box-shadow: 0 8px 22px var(--card-shadow);
+      min-width:280px;
+    }
+    .panel h2{ margin:0 0 8px 0; color:var(--accent); font-size:1.05rem; }
+    .panel p.lead{ margin:0 0 14px 0; color:var(--muted); font-size:0.95rem; }
+
+    .row{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+    .col{ flex:1 1 160px; min-width:140px; }
+    label{ display:block; font-size:0.85rem; margin-bottom:6px; color:#333; }
+    input[type="text"], input[type="number"], select{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #f0e9f1; box-sizing:border-box; font-size:1rem;
+      background: linear-gradient(180deg,#fff,#fff8ff);
+    }
+
+    .actions{ display:flex; gap:10px; margin-top:6px; align-items:center; }
+    button.primary{
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      color:#fff;
+      border:none;
+      padding:10px 14px;
+      border-radius:8px;
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(214,51,132,0.12);
+    }
+    button.ghost{
+      background:#fff; color:var(--accent); border:1px solid rgba(214,51,132,0.12); padding:9px 12px; border-radius:8px; cursor:pointer;
+    }
+
+    /* Right: Card preview column */
+    .preview-col{
+      width:420px;
+      max-width:42%;
+      min-width:300px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .preview-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+    }
+    .preview-header h3{ margin:0; color:var(--accent); font-size:1rem; }
+    .preview-header p{ margin:0; color:var(--muted); font-size:0.9rem; }
+
+    /* Container for stacked cards — new ones appear on top */
+    #cardsList{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      max-height:68vh;
+      overflow:auto;
+      padding-right:6px;
+    }
+
+    /* ----- Card visual: looks like the inside of an open birthday card ----- */
+    .card {
+      background: linear-gradient(180deg,#fff,#fffef8);
+      border-radius:12px;
+      box-shadow: 0 10px 30px rgba(20,40,80,0.06);
+      border:1px solid rgba(0,0,0,0.04);
+      overflow:visible;
+    }
+    .card.open {
+      display:flex;                      /* two panels like an open card */
+      width:100%;
+      min-height:140px;
+    }
+
+    /* Left panel: blank inside left side (where you'd write) */
+    .card .left {
+      flex:1;
+      background: linear-gradient(180deg, #fffefb, var(--card-paper));
+      padding:18px;
+      border-top-left-radius:12px;
+      border-bottom-left-radius:12px;
+      position:relative;
+      /* subtle paper texture using repeating gradient */
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(0,0,0,0.01) 0 1px, transparent 1px),
+        repeating-linear-gradient(180deg, rgba(0,0,0,0.01) 0 1px, transparent 1px 8px);
+    }
+
+    /* Center crease */
+    .card .crease {
+      width:8px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.00));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .card .crease::after{
+      content:"";
+      width:1px; height:84%;
+      background: repeating-linear-gradient(180deg, rgba(0,0,0,0.06) 0 2px, rgba(0,0,0,0.00) 2px 6px);
+      opacity:0.5;
+      border-radius:1px;
+    }
+
+    /* Right panel: message area (decorated) */
+    .card .right {
+      flex:1.15;
+      background: linear-gradient(180deg,#fffdfb,#fffbf2);
+      padding:18px 16px;
+      border-top-right-radius:12px;
+      border-bottom-right-radius:12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card .right .greeting{
+      font-weight:700;
+      color:var(--accent);
+      font-size:1.05rem;
+      margin-bottom:8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .card .right .message{
+      color:#222;
+      font-size:0.98rem;
+      line-height:1.45;
+      margin-bottom:12px;
+      white-space:pre-wrap;
+    }
+    .card .right .signature{
+      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+      color: #6b4b3a;
+      font-style:italic;
+    }
+
+    /* small controls per card */
+    .card-controls{
+      position:absolute;
+      top:8px;
+      right:8px;
+      display:flex;
+      gap:6px;
+    }
+    .card-controls button{
+      background: rgba(255,255,255,0.9);
+      border:1px solid rgba(0,0,0,0.06);
+      padding:6px 8px;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:0.82rem;
+    }
+
+    /* decorative corner confetti on right panel */
+    .card .right .decor{
+      position:absolute;
+      right:10px; top:8px;
+      font-size:20px;
+      opacity:0.9;
+    }
+
+    /* small note */
+    .note { font-size:0.85rem; color:var(--muted); margin-top:6px; }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .main{ flex-direction:column; align-items:stretch; }
+      .preview-col{ width:100%; max-width:none; min-width:unset; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-title">
+    <h1>🎉 Make a Happy Inside-Card Message!</h1>
+    <p>Enter a name, age, hobby — generate one or more festive inside-card messages on the right.</p>
+  </div>
+
+  <div class="main" role="main">
+    <!-- LEFT: form -->
+    <section class="panel" aria-labelledby="formTitle">
+      <h2 id="formTitle">Create inside-card messages</h2>
+      <p class="lead">Fill the fields and choose tone/amount. New cards will appear on the right and older cards are kept underneath.</p>
+
+      <div class="row">
+        <div class="col">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="e.g. Alex" />
+        </div>
+        <div class="col">
+          <label for="age">Age</label>
+          <input id="age" type="number" min="0" max="120" placeholder="e.g. 30" />
+        </div>
+        <div class="col">
+          <label for="hobby">Hobby</label>
+          <input id="hobby" type="text" placeholder="e.g. baking, golf, painting" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="flex:1">
+          <label for="count">How many messages</label>
+          <select id="count">
+            <option value="1">1</option>
+            <option value="3" selected>3</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div style="flex:1">
+          <label for="tone">Tone</label>
+          <select id="tone">
+            <option value="playful" selected>Playful</option>
+            <option value="cheeky">Cheeky</option>
+            <option value="sweet">Sweet & Funny</option>
+          </select>
+        </div>
+
+        <div style="flex:1; min-width:140px;">
+          <label>&nbsp;</label>
+          <div class="actions">
+            <button id="generate" class="primary">Generate</button>
+            <button id="shuffle" class="ghost">Shuffle</button>
+            <button id="clearAll" class="ghost" title="Clear all saved cards">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">Tip: If you leave something blank we'll use a friendly fallback. Age is validated between 0 and 120.</p>
+    </section>
+
+    <!-- RIGHT: preview & stacked cards -->
+    <aside class="preview-col" aria-labelledby="previewTitle">
+      <div class="preview-header">
+        <div>
+          <h3 id="previewTitle">Card Preview Area</h3>
+          <p class="note">Newest cards appear at the top; older cards stay visible underneath.</p>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px;color:var(--muted)">Saved cards</div>
+        </div>
+      </div>
+
+      <!-- Cards list (stacked). New batches will be prepended here -->
+      <div id="cardsList" aria-live="polite">
+        <!-- Generated cards appear here -->
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    // ---------- Templates & helpers ----------
+    const TEMPLATES = {
+      playful: [
+        "Happy {ordinal}, {name}! At {age}, you're the perfect age to blame everything on your {hobby}.",
+        "{name}, turning {age} is just leveling up. New perk unlocked: more time for {hobby}!",
+        "Happy birthday {name}! May your cake be as sweet as your {hobby} skills.",
+        "Another year older, {name}. Your {hobby} called — it wants cake.",
+        "Congrats {name}! {age} years of being you. Keep rocking that {hobby}!"
+      ],
+      cheeky: [
+        "Watch out, {name}: age {age} may increase your collection of {hobby} gadgets. Spend wisely.",
+        "{name}, at {age} you get two free passes: one for extra cake, one for more {hobby} time.",
+        "They say wisdom comes with age. Looks like you got the {hobby} part first, {name}.",
+        "Happy {ordinal}, {name}! You're now old enough to have opinions about everyone's {hobby}.",
+        "{name}, at {age} it's totally acceptable to call your {hobby} 'research' for future laziness."
+      ],
+      sweet: [
+        "Happy {ordinal}, {name}! {age} looks great on you — and so does your dedication to {hobby}.",
+        "Wishing you a joyful birthday, {name}. Keep doing what you love: {hobby} and being amazing.",
+        "To {name} on their {ordinal} birthday: here's to cake, laughter, and more {hobby} adventures.",
+        "{name}, may this year bring more time for {hobby} and lots of reasons to smile. Happy {age}!",
+        "Happy birthday! {age} is another beautiful chapter — fill it with {hobby} and good friends."
+      ]
+    };
+
+    function ordinal(n){
+      n = Number(n) || 0;
+      const s = ["th","st","nd","rd"], v = n % 100;
+      return n + (s[(v-20)%10] || s[v] || s[0]);
+    }
+    function safeName(name){ name=(name||"").trim(); return name||"friend"; }
+    function safeAge(age){
+      const n = parseInt(age,10);
+      if (isNaN(n)) return "a fine age";
+      if (n < 0) return 0;
+      if (n > 120) return 120;
+      return n;
+    }
+    function safeHobby(hobby){ hobby=(hobby||"").trim(); return hobby||"favorite hobby"; }
+
+    function fillTemplate(template, data){
+      return template.replace(/\{name\}/g,data.name)
+                     .replace(/\{age\}/g,data.age)
+                     .replace(/\{ordinal\}/g,data.ordinal)
+                     .replace(/\{hobby\}/g,data.hobby);
+    }
+
+    // ---------- DOM elements ----------
+    const elName = document.getElementById('name');
+    const elAge = document.getElementById('age');
+    const elHobby = document.getElementById('hobby');
+    const elCount = document.getElementById('count');
+    const elTone = document.getElementById('tone');
+    const btnGenerate = document.getElementById('generate');
+    const btnShuffle = document.getElementById('shuffle');
+    const btnClearAll = document.getElementById('clearAll');
+    const cardsList = document.getElementById('cardsList');
+
+    function validateAgeInput(){
+      const val = elAge.value.trim();
+      if (val === "") return true;
+      const n = Number(val);
+      if (Number.isNaN(n) || n < 0 || n > 120) {
+        alert("Please type a realistic age between 0 and 120, or leave blank.");
+        return false;
+      }
+      return true;
+    }
+
+    function getFormOptions(){
+      const name = safeName(elName.value);
+      const ageVal = safeAge(elAge.value);
+      const hobby = safeHobby(elHobby.value);
+      const ord = (typeof ageVal === "number") ? ordinal(ageVal) : ordinal(0);
+      return {
+        tone: elTone.value,
+        count: Math.max(1, Math.min(10, parseInt(elCount.value,10) || 1)),
+        data: { name, age: ageVal, ordinal: ord, hobby }
+      };
+    }
+
+    function generateMessages(options){
+      const templates = TEMPLATES[options.tone] || TEMPLATES.playful;
+      const res = [];
+      for(let i=0;i<options.count;i++){
+        const t = templates[Math.floor(Math.random()*templates.length)];
+        res.push(fillTemplate(t, options.data));
+      }
+      return res;
+    }
+
+    // ---------- Create card DOM (inside-card look) ----------
+    function createCardElement(messageText, data){
+      const wrapper = document.createElement('div');
+      wrapper.className = 'card open';
+      wrapper.setAttribute('role','article');
+
+      // left panel (blank inside)
+      const left = document.createElement('div');
+      left.className = 'left';
+      // add a light "To: Name" at the top-left inside the left panel
+      const toLine = document.createElement('div');
+      toLine.style.color = '#5b5b6a';
+      toLine.style.fontSize = '0.92rem';
+      toLine.style.marginBottom = '8px';
+      toLine.textContent = 'To: ' + data.name;
+      left.appendChild(toLine);
+      // small guideline/hint as if handwritten
+      const hint = document.createElement('div');
+      hint.style.fontSize = '0.82rem';
+      hint.style.color = '#7b7b86';
+      hint.textContent = '(Write a short note here if you like)';
+      left.appendChild(hint);
+
+      // crease
+      const crease = document.createElement('div');
+      crease.className = 'crease';
+
+      // right panel (message)
+      const right = document.createElement('div');
+      right.className = 'right';
+
+      // small controls (copy / remove)
+      const controls = document.createElement('div');
+      controls.className = 'card-controls';
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.title = 'Copy this message';
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.title = 'Remove this card';
+      controls.appendChild(copyBtn);
+      controls.appendChild(removeBtn);
+      right.appendChild(controls);
+
+      // greeting (big inside heading)
+      const greeting = document.createElement('div');
+      greeting.className = 'greeting';
+      greeting.innerHTML = 'Happy Birthday, <strong>' + escapeHtml(data.name) + '</strong>!';
+
+      // message body
+      const msg = document.createElement('div');
+      msg.className = 'message';
+      msg.textContent = messageText;
+
+      // signature line (simple)
+      const sign = document.createElement('div');
+      sign.className = 'signature';
+      sign.textContent = '— With love';
+
+      // decorative corner
+      const decor = document.createElement('div');
+      decor.className = 'decor';
+      decor.textContent = '🎂🎈';
+
+      right.appendChild(greeting);
+      right.appendChild(msg);
+      right.appendChild(sign);
+      right.appendChild(decor);
+
+      // assemble
+      wrapper.appendChild(left);
+      wrapper.appendChild(crease);
+      wrapper.appendChild(right);
+
+      // button behaviors
+      copyBtn.addEventListener('click', async () => {
+        const textToCopy = `Happy Birthday, ${data.name}!\n\n${messageText}\n\n— With love`;
+        try{
+          await navigator.clipboard.writeText(textToCopy);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(()=> copyBtn.textContent = 'Copy', 1200);
+        } catch(e){
+          alert('Could not copy automatically. You can select the message and copy manually.');
+        }
+      });
+      removeBtn.addEventListener('click', () => {
+        wrapper.remove();
+      });
+
+      return wrapper;
+    }
+
+    // small helper to escape inserted names in HTML string
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, function(m){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+      });
+    }
+
+    // ---------- Generate / Shuffle handlers ----------
+    function handleGenerate(){
+      if (!validateAgeInput()) return;
+      const opts = getFormOptions();
+      const messages = generateMessages(opts);
+      // Create a batch container so new messages are grouped and prepended as a unit
+      const batch = document.createElement('div');
+      batch.style.display = 'flex';
+      batch.style.flexDirection = 'column';
+      batch.style.gap = '12px';
+      for (let i = 0; i < messages.length; i++){
+        const cardEl = createCardElement(messages[i], opts.data);
+        batch.appendChild(cardEl);
+      }
+      // prepend the batch to cardsList so newest block is on top
+      cardsList.prepend(batch);
+
+      // small UX: scroll the preview column to top so user sees new cards
+      cardsList.scrollTop = 0;
+    }
+
+    btnGenerate.addEventListener('click', handleGenerate);
+    btnShuffle.addEventListener('click', () => {
+      // shuffle just regenerates using same inputs
+      handleGenerate();
+    });
+
+    btnClearAll.addEventListener('click', () => {
+      if (!confirm('Clear all saved cards? This cannot be undone.')) return;
+      cardsList.innerHTML = '';
+    });
+
+    // allow Enter to generate
+    [elName, elAge, elHobby].forEach(el=>{
+      el.addEventListener('keydown', (e)=>{
+        if (e.key === 'Enter'){
+          e.preventDefault();
+          handleGenerate();
+        }
+      });
+    });
+
+    // small starter card so the right side isn't empty
+    (function initStarter(){
+      const starterText = "Here's a little starter message — try changing the name, age or hobby and click Generate to make your own!";
+      const starterData = { name: 'Friend', age: '—', ordinal: '—', hobby: 'fun stuff' };
+      const starter = createCardElement(starterText, starterData);
+      cardsList.appendChild(starter);
+    })();
+  </script>
+</body>
+</html>
